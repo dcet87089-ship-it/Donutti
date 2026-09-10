@@ -29,8 +29,8 @@ if sys.platform == "win32":
         pass
 
 app = FastAPI(
-    title="Le Grand Versailles Reservation API",
-    description="High-concurrency robust booking engine for Versailles Palace Hotel",
+    title="Lanna Heritage Sanctuary Reservation API",
+    description="High-concurrency robust booking engine for Chiang Mai Lanna Resort",
     version="1.0.0"
 )
 
@@ -81,30 +81,30 @@ class ReservationResponse(BaseModel):
 ROOM_DATABASE: Dict[str, Room] = {
     "room_king_suite": Room(
         id="room_king_suite",
-        name_th="ห้องสูทพระเจ้าหลุยส์ที่ 14 (The King's Royal Chamber)",
-        name_fr="La Chambre du Roi",
-        description="ห้องบรรทมทองคำประดับผ้าปักดิ้นทองแท้จากศตวรรษที่ 17 พร้อมเตียงสี่เสาสไตล์บารอก",
-        price_per_night=89000.0,
+        name_th="แกรนด์ รอยัล ล้านนา สวีท (Grand Royal Lanna Suite)",
+        name_fr="Signature Teak Villa",
+        description="เรือนไม้สักทองโบราณผสมผสานความหรูหราร่วมสมัย เตียงคิงไซส์ผ้าไหมสันกำแพงทอมือ พร้อมระเบียงกว้างเปิดรับสายหมอก",
+        price_per_night=28500.0,
         total_inventory=1,  # ห้องพิเศษเอกสิทธิ์ มีเพียง 1 ห้องเท่านั้น!
         available_inventory=1,
         image_360_url="https://images.unsplash.com/photo-1590381105924-c72589b9ef3f?q=80&w=2071"
     ),
     "room_hall_mirrors": Room(
         id="room_hall_mirrors",
-        name_th="แกรนด์เพนต์เฮาส์ วิวกระจกสะท้อน (Galerie des Glaces View)",
-        name_fr="Suite de la Galerie des Glaces",
-        description="เพดานโค้งสูง 6 เมตร โคมระย้าคริสตัลโบฮีเมียน และหน้าต่างโค้งเปิดรับทัศนียภาพสวนแวร์ซายส์",
-        price_per_night=65000.0,
+        name_th="ดอยสุเทพ ซันเซ็ต พูลวิลล่า (Doi Suthep Sunset Pool Villa)",
+        name_fr="Doi Suthep Horizon View",
+        description="พูลวิลล่าส่วนตัวพร้อมสระว่ายน้ำอินฟินิตี้หันหน้าสู่ยอดดอยสุเทพ สัมผัสแสงสีทองยามเย็นและสายหมอกยามเช้า",
+        price_per_night=22000.0,
         total_inventory=2,
         available_inventory=2,
         image_360_url="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=2070"
     ),
     "room_orangerie": Room(
         id="room_orangerie",
-        name_th="รอยัลการ์เดนท์ สวีท (L'Orangerie Garden Suite)",
-        name_fr="Suite de l'Orangerie",
-        description="วิวดอกส้มและน้ำพุทองเหลืองประติมากรรมอพอลโล สัมผัสธรรมชาติและความสงบโอ่อ่า",
-        price_per_night=42000.0,
+        name_th="แม่ริม ฟอเรสต์ แซงค์ทัวรี (Mae Rim Forest Sanctuary)",
+        name_fr="Botanical Garden Villa",
+        description="วิลล่ากระจกพาโนรามาท่ามกลางป่าธรรมชาติและสวนพฤกษศาสตร์เมืองเหนือ ดื่มด่ำความเงียบสงบและธารน้ำไหล",
+        price_per_night=16500.0,
         total_inventory=3,
         available_inventory=3,
         image_360_url="https://images.unsplash.com/photo-1578683010236-d716f9a3f461?q=80&w=2070"
@@ -162,7 +162,7 @@ async def reserve_room(req: ReservationRequest):
         room.available_inventory -= 1
         
         # คำนวณราคาและออกรหัสยืนยันแบบพระราชวัง
-        token = f"VERSAILLES-{datetime.now().strftime('%Y%m%d%H%M%S')}-{req.room_id[:4].upper()}"
+        token = f"LANNA-{datetime.now().strftime('%Y%m%d%H%M%S')}-{req.room_id[:4].upper()}"
         
         booking_record = {
             "token": token,
