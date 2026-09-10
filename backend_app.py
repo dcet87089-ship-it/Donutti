@@ -29,8 +29,8 @@ if sys.platform == "win32":
         pass
 
 app = FastAPI(
-    title="Lanna Heritage Sanctuary Reservation API",
-    description="High-concurrency robust booking engine for Chiang Mai Lanna Resort",
+    title="Bonnie Resort Chiang Mai Reservation API",
+    description="High-concurrency robust booking engine for Bonnie Resort Chiang Mai",
     version="1.0.0"
 )
 
@@ -81,7 +81,7 @@ class ReservationResponse(BaseModel):
 ROOM_DATABASE: Dict[str, Room] = {
     "room_king_suite": Room(
         id="room_king_suite",
-        name_th="แกรนด์ รอยัล ล้านนา สวีท (Grand Royal Lanna Suite)",
+        name_th="บอนนี่ แกรนด์ ล้านนา สวีท (Bonnie Grand Lanna Suite)",
         name_fr="Signature Teak Villa",
         description="เรือนไม้สักทองโบราณผสมผสานความหรูหราร่วมสมัย เตียงคิงไซส์ผ้าไหมสันกำแพงทอมือ พร้อมระเบียงกว้างเปิดรับสายหมอก",
         price_per_night=28500.0,
@@ -162,7 +162,7 @@ async def reserve_room(req: ReservationRequest):
         room.available_inventory -= 1
         
         # คำนวณราคาและออกรหัสยืนยันแบบพระราชวัง
-        token = f"LANNA-{datetime.now().strftime('%Y%m%d%H%M%S')}-{req.room_id[:4].upper()}"
+        token = f"BONNIE-{datetime.now().strftime('%Y%m%d%H%M%S')}-{req.room_id[:4].upper()}"
         
         booking_record = {
             "token": token,
@@ -214,7 +214,7 @@ if __name__ == "__main__":
     server_url = f"http://127.0.0.1:{port}"
 
     print("=================================================================")
-    print(f" Le Grand Versailles Server is starting on: {server_url}")
+    print(f" Bonnie Resort Server is starting on: {server_url}")
     print(f" API Documentation (Swagger UI): {server_url}/docs")
     print(" Automatically opening web browser in 1.5 seconds...")
     print(" Press Ctrl + C in this terminal to stop the server")

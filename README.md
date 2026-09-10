@@ -1,21 +1,21 @@
-# ⚜️ Le Grand Versailles - Hôtel & Résidences Royales
-> เว็บไซต์จองโรงแรมพระราชวังแวร์ซายส์เสมือนจริง (Versailles Palace Virtual Experience) พร้อมระบบสำรวจ 360 องศา และระบบหลังบ้านป้องกัน Concurrency Race Condition
+# 🪷 Bonnie - Chiang Mai Resort & Sanctuary
+> เว็บไซต์จองโรงแรมรีสอร์ตเชียงใหม่เสมือนจริง (Bonnie Virtual Experience) พร้อมระบบสำรวจ 360 องศา และระบบหลังบ้านป้องกัน Concurrency Race Condition
 
 ---
 
 ## 🌟 จุดเด่นของโปรเจกต์ (Key Pillars)
 
-1. **Visual-First Elegance (สุนทรียภาพแห่งศิลปะราชสำนักฝรั่งเศส):**
-   - ธีมสี Royal Gold, Velvet Burgundy และหินอ่อน พร้อมเอฟเฟกต์ละอองทองคำ (Gold Dust Canvas)
+1. **Visual-First Nature (สุนทรียภาพแห่งขุนเขาและสายหมอกเชียงใหม่):**
+   - ธีมสีธรรมชาติขุนเขา ผสานศิลปะไม้สักทองล้านนาร่วมสมัย พร้อมเอฟเฟกต์ละอองเกสรทองคำ (Gold Dust Canvas)
    - ฟอนต์หรูหรา Cinzel, Playfair Display และ Noto Serif Thai
-   - ดนตรีบรรเลงสไตล์ฮาร์ปซิคอร์ดบารอก (Baroque Ambience Synthesizer) เปิด-ปิดได้
+   - ดนตรีบรรเลงกลิ่นอายล้านนา (Bonnie Ambience Synthesizer) เปิด-ปิดได้
    - รองรับการแสดงผลทุกหน้าจออย่างสมบูรณ์แบบ (Fully Mobile & Tablet Responsive)
 
-2. **Immersive 360° Exploration (สำรวจพระราชวังรอบทิศทาง):**
+2. **Immersive 360° Exploration (สำรวจรีสอร์ตล้านนารอบทิศทาง):**
    - ฝังระบบ **Pannellum 360° Virtual Tour** สามารถลากหมุนชมห้องได้รอบทิศ
    - **ระบบหมุนตามเมาส์ (Mouse Follow Mode):** เพียงขยับเมาส์ กล้องจะแพนตามตำแหน่งเมาส์ทันที
-   - **แถบปุ่มลัดเลือกดูแต่ละฝั่ง:** ฝั่งซ้าย, ฝั่งขวา, เพดาน & แชนเดอเลียร์, พื้นห้อง, และกลับหลัง 180°
-   - สลับชมได้ 3 โซน: *La Chambre du Roi*, *Galerie des Glaces*, และ *L'Orangerie*
+   - **แถบปุ่มลัดเลือกดูแต่ละฝั่ง:** ฝั่งซ้าย, ฝั่งขวา, เพดาน, พื้นห้อง, และกลับหลัง 180°
+   - สลับชมได้ 3 โซน: *Bonnie Grand Lanna Suite*, *Doi Suthep Sunset Pool Villa*, และ *Mae Rim Botanical Terrace*
 
 3. **Robust Backend Architecture (ระบบหลังบ้านป้องกันการจองซ้อน):**
    - พัฒนาด้วย **Python (FastAPI)**
