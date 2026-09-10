@@ -1,11 +1,11 @@
 """
-Le Grand Versailles Hotel & Residences - Robust Backend System
+Bonnie Resort & Sanctuary Chiang Mai - Robust Backend System
 FastAPI Backend Architecture with Concurrency Lock & Double-Booking Prevention
 
 คำอธิบาย:
-ระบบหลังบ้านนี้สร้างด้วย Python (FastAPI) โดยใช้กลไก Pessimistic/Atomic Locking
-เพื่อรับประกันว่า แม้มีผู้ใช้งานกดจองห้องชุดพระราชวังห้องเดียวกันในเสี้ยววินาทีเดียวกัน
-ระบบจะยอมรับการจองได้เพียง 1 คำขอเท่านั้น และแจ้งสถานะห้องเต็มแก่คำขอที่ชนกันอย่างถูกต้อง
+ระบบหลังบ้านนี้สร้างด้วย Python (FastAPI) โดยใช้กลไก Concurrency Atomic Locking
+เพื่อรับประกันว่า แม้มีผู้ใช้งานกดจองวิลล่าห้องเดียวกันในเสี้ยววินาทีเดียวกัน
+ระบบจะยอมรับการจองได้เพียง 1 คำขอเท่านั้น และแจ้งสถานะห้องเต็มแก่คำขอที่ชนกันอย่างถูกต้อง 100%
 """
 
 import os

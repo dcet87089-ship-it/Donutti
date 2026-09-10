@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bonnie Resort Chiang Mai | มนต์เสน่ห์ขุนเขาและพูลวิลล่าเชียงใหม่เสมือนจริง 360°</title>
+    <meta name="description" content="สัมผัสประสบการณ์การพักผ่อนเหนือระดับที่ บอนนี่ รีสอร์ต แอนด์ แซงค์ทัวรี เชียงใหม่ พูลวิลล่าส่วนตัวท่ามกลางขุนเขาแม่ริม สำรวจห้องพักจริง 360 องศา พร้อมระบบจองตรงการันตีห้องพัก 100%">
     
     <!-- Fonts: Cinzel for Royal French Luxury, Playfair Display, and Prompt/Noto Serif for Thai -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -993,6 +994,71 @@
             letter-spacing: 2px;
         }
 
+        /* Direct Booking Perks & VIP Privileges Section */
+        .section-perks {
+            padding: 90px 8%;
+            background: linear-gradient(180deg, #110e0c 0%, #1a1411 50%, #110e0c 100%);
+            border-top: 1px solid var(--glass-border);
+            border-bottom: 1px solid var(--glass-border);
+            position: relative;
+            z-index: 2;
+        }
+
+        .perks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .perk-card {
+            background: rgba(26, 20, 18, 0.75);
+            border: 1px solid rgba(212, 175, 55, 0.25);
+            border-radius: 16px;
+            padding: 26px 22px;
+            transition: all 0.35s ease;
+            display: flex;
+            gap: 18px;
+            align-items: flex-start;
+            backdrop-filter: blur(8px);
+        }
+
+        .perk-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--gold-primary);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.6), var(--gold-glow);
+            background: rgba(36, 28, 25, 0.85);
+        }
+
+        .perk-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            background: rgba(212, 175, 55, 0.12);
+            border: 1px solid var(--gold-primary);
+            color: var(--gold-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.35rem;
+            flex-shrink: 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+
+        .perk-info h4 {
+            color: var(--gold-light);
+            font-size: 1.08rem;
+            margin-bottom: 6px;
+            font-weight: 600;
+        }
+
+        .perk-info p {
+            color: var(--text-muted);
+            font-size: 0.88rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+
         /* Footer */
         footer {
             border-top: 1px solid var(--glass-border);
@@ -1234,6 +1300,13 @@
                 height: 55px;
                 font-size: 1.5rem;
             }
+            .section-perks {
+                padding: 60px 5%;
+            }
+            .perks-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -1262,23 +1335,24 @@
 
         <ul class="nav-links">
             <li><a href="#hero" class="active">หน้าแรก</a></li>
-            <li><a href="#tour-section">ทัวร์ 360° ขุนเขาล้านนา</a></li>
+            <li><a href="#tour-section">ทัวร์ 360° เสมือนจริง</a></li>
             <li><a href="#suites-section">วิลล่า & สวีท</a></li>
-            <li><a href="#backend-section">ระบบ Robust Backend</a></li>
+            <li><a href="#perks-section">เอกสิทธิ์การจองตรง</a></li>
+            <li><a href="#backend-section">การันตีห้องพัก 100%</a></li>
         </ul>
 
         <div class="nav-actions">
             <!-- Northern Thai Music Ambient Audio Toggle -->
-            <button class="audio-btn" id="audio-toggle-btn" title="เปิด/ปิด ดนตรีบรรเลงกลิ่นอายล้านนา (Lanna Ambience)">
-                <i class="fa-solid fa-music"></i>
-                <span>ดนตรีล้านนา</span>
+            <button class="audio-btn" id="audio-toggle-btn" title="เปิด/ปิด ดนตรีล้านนาบำบัดผ่อนคลาย (Lanna Spa Ambience)">
+                <i class="fa-solid fa-spa"></i>
+                <span>ดนตรีผ่อนคลาย</span>
                 <div class="sound-wave" id="sound-bars">
                     <span class="sound-bar"></span>
                     <span class="sound-bar"></span>
                     <span class="sound-bar"></span>
                 </div>
             </button>
-            <a href="#suites-section" class="btn-royal"><i class="fa-solid fa-crown"></i> จองห้องพัก</a>
+            <a href="#suites-section" class="btn-royal"><i class="fa-solid fa-calendar-check"></i> เช็คห้องว่าง & จอง</a>
         </div>
     </nav>
 
@@ -1286,42 +1360,43 @@
     <header class="hero" id="hero">
         <div class="hero-content">
             <div class="royal-badge">
-                <i class="fa-solid fa-mountain"></i> The Ultimate Chiang Mai Luxury Mountain Sanctuary
+                <i class="fa-solid fa-mountain-sun"></i> THE ULTIMATE CHIANG MAI LUXURY MOUNTAIN SANCTUARY
             </div>
             <h1 class="hero-title">
-                สัมผัสความสงบกลางขุนเขา<br>
-                <span class="gold-text">มนต์เสน่ห์เชียงใหม่ เสมือนจริง</span>
+                หลีกหนีสู่ความสงบแห่งขุนเขาแม่ริม<br>
+                <span class="gold-text">สัมผัสวิลล่าสุดหรูเสมือนจริง 360°</span>
             </h1>
             <p class="hero-subtitle">
-                เปลี่ยนหน้าเว็บจองห้องพักเดิมๆ ให้กลายเป็นการเดินทางสู่ขุนเขาและสายหมอกเชียงใหม่
-                สำรวจเรือนไม้สักทองและพูลวิลล่าวิวดอยสุเทพแบบ 360 องศา พร้อมระบบจองอัจฉริยะที่มั่นคงและไร้ข้อผิดพลาด
+                เปิดประตูสู่วันพักผ่อนเหนือระดับที่ผสานเสน่ห์สถาปัตยกรรมล้านนาร่วมสมัยเข้ากับธรรมชาติอันบริสุทธิ์
+                สำรวจเรือนไม้สักทอง พูลวิลล่าส่วนตัว และวิวหมอกพาโนรามาได้รอบทิศทาง 360° เสมือนยืนอยู่ ณ ที่จริง
+                พร้อมระบบจองตรงการันตีห้องพักให้คุณทันที 100%
             </p>
 
             <div class="hero-actions">
                 <a href="#tour-section" class="btn-royal">
-                    <i class="fa-solid fa-compass"></i> สำรวจ 360° วิวดอยสุเทพ
+                    <i class="fa-solid fa-compass"></i> สำรวจ 360° ทุกมุมมอง
                 </a>
-                <a href="#backend-section" class="btn-outline-gold">
-                    <i class="fa-solid fa-shield-halved"></i> พิสูจน์ระบบ Concurrency Guard
+                <a href="#suites-section" class="btn-outline-gold">
+                    <i class="fa-solid fa-bed"></i> ชมวิลล่า & รับสิทธิพิเศษ
                 </a>
             </div>
 
             <!-- 3 Core Concept Pillars -->
             <div class="hero-pillars">
                 <div class="pillar-card">
-                    <div class="pillar-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
-                    <div class="pillar-title">Visual-First Nature</div>
-                    <div class="pillar-desc">ภาพสถานที่จริงระดับมาสเตอร์พีซ คุมโทนธรรมชาติขุนเขาเชียงใหม่และศิลปะล้านนาร่วมสมัย</div>
+                    <div class="pillar-icon"><i class="fa-solid fa-mountain-sun"></i></div>
+                    <div class="pillar-title">Bespoke Sanctuary</div>
+                    <div class="pillar-desc">โอบล้อมด้วยอากาศบริสุทธิ์และไอหมอกยามเช้าของดอยสุเทพ มอบความเงียบสงบและความเป็นส่วนตัวสูงสุดในทุกช่วงเวลา</div>
                 </div>
                 <div class="pillar-card">
                     <div class="pillar-icon"><i class="fa-solid fa-vr-cardboard"></i></div>
                     <div class="pillar-title">Immersive 360° Tour</div>
-                    <div class="pillar-desc">สำรวจห้องพัก สระว่ายน้ำอินฟินิตี้ และระเบียงหมอกได้ทุกมุมมองแบบ Interactive เสมือนอยู่ที่จริง</div>
+                    <div class="pillar-desc">สำรวจห้องพัก สระว่ายน้ำส่วนตัว และระเบียงชมวิวได้รอบทิศทาง มั่นใจได้ว่าสิ่งที่เห็นคือสิ่งที่จะได้รับ 100%</div>
                 </div>
                 <div class="pillar-card">
-                    <div class="pillar-icon"><i class="fa-solid fa-server"></i></div>
-                    <div class="pillar-title">Robust Python Backend</div>
-                    <div class="pillar-desc">สถาปัตยกรรม Concurrency Lock ป้องกันการกดจองห้องเดียวกันพร้อมกันในระดับ Millisecond</div>
+                    <div class="pillar-icon"><i class="fa-solid fa-shield-check"></i></div>
+                    <div class="pillar-title">Instant Confirmation</div>
+                    <div class="pillar-desc">ระบบจองตรงความเร็วสูง ล็อกสิทธิ์ห้องพักทันทีแบบ Real-time ไม่มีการยกเลิกซ้ำซ้อน พร้อมบริการบัตเลอร์ 24 ชม.</div>
                 </div>
             </div>
         </div>
@@ -1333,10 +1408,10 @@
             <div class="booking-header-status">
                 <div class="concurrency-badge">
                     <span class="dot"></span>
-                    <span>ระบบป้องกันการจองซ้อน (Concurrency Lock): <strong>พร้อมทำงานปกติ</strong></span>
+                    <span>ระบบการันตีห้องว่าง (Instant Confirmation): <strong>พร้อมยืนยันสิทธิ์ทันที</strong></span>
                 </div>
                 <div style="color: var(--gold-light);">
-                    <i class="fa-regular fa-clock"></i> อัปเดตคลังห้องว่างล่าสุดแบบ Real-time
+                    <i class="fa-solid fa-gift"></i> สิทธิพิเศษวันนี้: จองตรงรับฟรี Floating Breakfast & Afternoon Tea
                 </div>
             </div>
 
@@ -1345,9 +1420,9 @@
                     <div class="form-group">
                         <label><i class="fa-solid fa-bed"></i> เลือกห้องพัก & พูลวิลล่า</label>
                         <select class="form-control" id="form-suite-select">
-                            <option value="room_king_suite">🪷 Bonnie Grand Lanna Suite (เหลือ 1 ห้องสุดท้าย!)</option>
-                            <option value="room_hall_mirrors">⛰️ Doi Suthep Sunset Pool Villa (เหลือ 2 หลัง)</option>
-                            <option value="room_orangerie">🌿 Mae Rim Forest Sanctuary (เหลือ 3 หลัง)</option>
+                            <option value="room_king_suite">🪷 บอนนี่ แกรนด์ ล้านนา สวีท (เหลือ 1 ห้องสุดท้าย - ยอดนิยมสูงสุด!)</option>
+                            <option value="room_hall_mirrors">⛰️ ดอยสุเทพ ซันเซ็ต พูลวิลล่า (เหลือ 2 หลัง - สระส่วนตัว)</option>
+                            <option value="room_orangerie">🌿 แม่ริม ฟอเรสต์ แซงค์ทัวรี (เหลือ 3 หลัง - กลาสเฮ้าส์ธรรมชาติ)</option>
                         </select>
                     </div>
 
@@ -1364,14 +1439,14 @@
                     <div class="form-group">
                         <label><i class="fa-solid fa-user-group"></i> จำนวนผู้เข้าพัก</label>
                         <select class="form-control" id="form-guests">
-                            <option value="2">2 ท่าน (ผู้ใหญ่ 2)</option>
+                            <option value="2">2 ท่าน (คู่รัก / พักผ่อนส่วนตัว)</option>
                             <option value="3">3 ท่าน (ผู้ใหญ่ 2, เด็ก 1)</option>
-                            <option value="4">4 ท่าน (รอยัลแฟมิลี่)</option>
+                            <option value="4">4 ท่าน (วิลล่าสำหรับครอบครัว)</option>
                         </select>
                     </div>
 
                     <button type="submit" class="btn-royal" style="height: 48px; justify-content: center;">
-                        <i class="fa-solid fa-key"></i> จองห้องพักทันที
+                        <i class="fa-solid fa-sparkles"></i> ค้นหาห้องว่าง & รับข้อเสนอพิเศษ
                     </button>
                 </div>
             </form>
@@ -1405,7 +1480,7 @@
         <!-- 360 Viewport Container -->
         <div class="tour-viewport-container" id="tour-viewport-wrap">
             <div class="tour-overlay-badge" id="current-scene-badge">
-                <i class="fa-solid fa-street-view"></i> กำลังชม: La Chambre du Roi (The King's Chamber)
+                <i class="fa-solid fa-street-view"></i> กำลังชม: 🪷 บอนนี่ แกรนด์ ล้านนา สวีท (เรือนไม้สักทอง)
             </div>
 
             <!-- Directional Quick Chooser Bar (เลือกดูฝั่งต่างๆ) -->
@@ -1459,36 +1534,36 @@
         </div>
     </section>
 
-    <!-- 4. Palace Suites Showcase -->
+    <!-- 4. Villas & Suites Showcase -->
     <section class="section-suites" id="suites-section">
         <div class="section-header">
-            <span class="section-tag">✦ EXCLUSIVE ROYAL SUITES ✦</span>
-            <h2 class="section-title">ห้องชุดพระราชวัง <span class="gold-text">เอกสิทธิ์เฉพาะท่าน</span></h2>
+            <span class="section-tag">✦ HANDCRAFTED LUXURY VILLAS & SUITES ✦</span>
+            <h2 class="section-title">วิลล่าและห้องพักเอกสิทธิ์ <span class="gold-text">สัมผัสการพักผ่อนเหนือระดับ</span></h2>
             <p class="section-desc">
-                คัดสรรห้องชุดที่จำลองสถาปัตยกรรมศตวรรษที่ 17 ของราชสำนักฝรั่งเศสไว้อย่างสมบูรณ์แบบ
-                พร้อมการบริการบัตเลอร์ส่วนตัวตลอด 24 ชั่วโมง
+                ทุกวิลล่าได้รับการรังสรรค์อย่างประณีตด้วยไม้สักทองแท้และวัสดุธรรมชาติ ผสานความสะดวกสบายระดับ 5 ดาว 
+                เปิดรับทัศนียภาพอันงดงามของขุนเขาเชียงใหม่อย่างเต็มตา พร้อมบริการบัตเลอร์ส่วนตัวตลอด 24 ชั่วโมง
             </p>
         </div>
 
         <div class="suites-grid">
-            <!-- Suite 1 -->
+            <!-- Suite 1: Bonnie Grand Lanna Suite (Different non-duplicate image) -->
             <div class="suite-card">
                 <div class="suite-img-wrap">
-                    <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=1200" alt="Bonnie Grand Lanna Suite">
+                    <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?q=80&w=1200" alt="บอนนี่ แกรนด์ ล้านนา สวีท">
                     <span class="suite-badge">ห้องยอดนิยมสูงสุด</span>
                     <span class="suite-inventory-tag" id="inv-room_king_suite"><i class="fa-solid fa-fire"></i> เหลือ 1 ห้องสุดท้าย</span>
                 </div>
                 <div class="suite-body">
                     <div>
-                        <div class="suite-french-name">Signature Teak Villa</div>
+                        <div class="suite-french-name">Signature Masterpiece Villa</div>
                         <h3 class="suite-name">บอนนี่ แกรนด์ ล้านนา สวีท</h3>
                         <p class="suite-desc">
-                            เรือนไม้สักทองโบราณผสมผสานความหรูหราร่วมสมัย เตียงคิงไซส์ผ้าไหมสันกำแพงทอมือ 
-                            พร้อมอ่างแช่น้ำไม้หอม และระเบียงกว้างเปิดรับวิวทิวเขาและสายหมอกเชียงใหม่
+                            สัมผัสความอบอุ่นสง่างามในเรือนไม้สักทองแท้ เตียงคิงไซส์สัมผัสนุ่มพิเศษปูผ้าไหมสันกำแพงทอมือ 
+                            อ่างแช่น้ำไม้หอมชมวิวทิวเขา และระเบียงกว้างเปิดรับสายหมอกยามเช้า พร้อมบริการ Afternoon Tea และบัตเลอร์ดูแลอย่างใกล้ชิด
                         </p>
                         <div class="suite-amenities">
                             <span><i class="fa-solid fa-vector-square"></i> 165 ตร.ม.</span>
-                            <span><i class="fa-solid fa-car"></i> รถรับส่งสนามบิน</span>
+                            <span><i class="fa-solid fa-van-shuttle"></i> รถลีมูซีนรับ-ส่ง</span>
                             <span><i class="fa-solid fa-user-tie"></i> บัตเลอร์ 24 ชม.</span>
                         </div>
                     </div>
@@ -1497,30 +1572,30 @@
                             <span class="price-label">ราคาเริ่มต้น / คืน</span>
                             <span class="price-val">฿28,500</span>
                         </div>
-                        <button class="btn-royal" onclick="openBookingModal('room_king_suite')">จองห้องนี้</button>
+                        <button class="btn-royal" onclick="openBookingModal('room_king_suite')">สำรองวิลล่านี้</button>
                     </div>
                 </div>
             </div>
 
-            <!-- Suite 2 -->
+            <!-- Suite 2: Doi Suthep Sunset Pool Villa -->
             <div class="suite-card">
                 <div class="suite-img-wrap">
-                    <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=1200" alt="Doi Suthep Sunset Pool Villa">
+                    <img src="https://images.unsplash.com/photo-1584132967334-10e028bd69f7?q=80&w=1200" alt="ดอยสุเทพ ซันเซ็ต พูลวิลล่า">
                     <span class="suite-badge" style="background: rgba(11, 25, 45, 0.9);">Infinity Pool View</span>
                     <span class="suite-inventory-tag" id="inv-room_hall_mirrors">เหลือ 2 หลัง</span>
                 </div>
                 <div class="suite-body">
                     <div>
-                        <div class="suite-french-name">Doi Suthep Horizon View</div>
+                        <div class="suite-french-name">Private Infinity Pool Villa</div>
                         <h3 class="suite-name">ดอยสุเทพ ซันเซ็ต พูลวิลล่า</h3>
                         <p class="suite-desc">
-                            พูลวิลล่าส่วนตัวพร้อมสระว่ายน้ำอินฟินิตี้หันหน้าสู่ยอดดอยสุเทพ 
-                            สัมผัสแสงสีทองยามเย็นและสายหมอกยามเช้า พร้อมศาลาพักผ่อนริมน้ำส่วนตัว
+                            พูลวิลล่าส่วนตัวพร้อมสระว่ายน้ำอินฟินิตี้ระบบเกลือทอดยาวสู่ทัศนียภาพขุนเขา 
+                            ดื่มด่ำแสงสีทองยามอาทิตย์อัสดงลับขอบฟ้าหลังยอดดอยสุเทพ ศาลาพักผ่อนริมน้ำ และอภินันทนาการ Floating Breakfast เสิร์ฟถึงสระส่วนตัว
                         </p>
                         <div class="suite-amenities">
                             <span><i class="fa-solid fa-vector-square"></i> 140 ตร.ม.</span>
-                            <span><i class="fa-solid fa-water-ladder"></i> สระส่วนตัว</span>
-                            <span><i class="fa-solid fa-champagne-glasses"></i> Floating Breakfast</span>
+                            <span><i class="fa-solid fa-water-ladder"></i> สระอินฟินิตี้ส่วนตัว</span>
+                            <span><i class="fa-solid fa-champagne-glasses"></i> ฟรี Floating Breakfast</span>
                         </div>
                     </div>
                     <div class="suite-footer">
@@ -1528,30 +1603,30 @@
                             <span class="price-label">ราคาเริ่มต้น / คืน</span>
                             <span class="price-val">฿22,000</span>
                         </div>
-                        <button class="btn-royal" onclick="openBookingModal('room_hall_mirrors')">จองห้องนี้</button>
+                        <button class="btn-royal" onclick="openBookingModal('room_hall_mirrors')">สำรองวิลล่านี้</button>
                     </div>
                 </div>
             </div>
 
-            <!-- Suite 3 -->
+            <!-- Suite 3: Mae Rim Forest Sanctuary -->
             <div class="suite-card">
                 <div class="suite-img-wrap">
-                    <img src="https://images.unsplash.com/photo-1549294413-26f195200c16?q=80&w=1200" alt="Mae Rim Forest Sanctuary">
-                    <span class="suite-badge" style="background: rgba(20, 60, 40, 0.9);">Nature Sanctuary</span>
+                    <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?q=80&w=1200" alt="แม่ริม ฟอเรสต์ แซงค์ทัวรี">
+                    <span class="suite-badge" style="background: rgba(20, 60, 40, 0.9);">Nature & Wellness</span>
                     <span class="suite-inventory-tag" id="inv-room_orangerie">เหลือ 3 หลัง</span>
                 </div>
                 <div class="suite-body">
                     <div>
-                        <div class="suite-french-name">Botanical Garden Villa</div>
+                        <div class="suite-french-name">Botanical Glasshouse Sanctuary</div>
                         <h3 class="suite-name">แม่ริม ฟอเรสต์ แซงค์ทัวรี</h3>
                         <p class="suite-desc">
                             วิลล่ากระจกพาโนรามาท่ามกลางป่าธรรมชาติและสวนพฤกษศาสตร์เมืองเหนือ 
-                            ดื่มด่ำความเงียบสงบ เสียงธารน้ำไหล และสัมผัสอากาศบริสุทธิ์แห่งขุนเขา
+                            สดับเสียงสายน้ำไหลเอื่อยและสัมผัสอากาศบริสุทธิ์ ผ่อนคลายกับออนเซ็นไม้สนกลางแจ้งส่วนตัว และดื่มด่ำชาอัสสัมออร์แกนิกคัดพิเศษ
                         </p>
                         <div class="suite-amenities">
                             <span><i class="fa-solid fa-vector-square"></i> 110 ตร.ม.</span>
-                            <span><i class="fa-solid fa-mug-hot"></i> ชาอัสสัมออร์แกนิก</span>
-                            <span><i class="fa-solid fa-spa"></i> นวดสปาอโรมา</span>
+                            <span><i class="fa-solid fa-hot-tub-person"></i> ออนเซ็นไม้สนกลางแจ้ง</span>
+                            <span><i class="fa-solid fa-spa"></i> สปาอโรมาทรีตเมนต์</span>
                         </div>
                     </div>
                     <div class="suite-footer">
@@ -1559,8 +1634,64 @@
                             <span class="price-label">ราคาเริ่มต้น / คืน</span>
                             <span class="price-val">฿16,500</span>
                         </div>
-                        <button class="btn-royal" onclick="openBookingModal('room_orangerie')">จองห้องนี้</button>
+                        <button class="btn-royal" onclick="openBookingModal('room_orangerie')">สำรองวิลล่านี้</button>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4.1 Exclusive Direct Booking Perks -->
+    <section class="section-perks" id="perks-section">
+        <div class="section-header">
+            <span class="section-tag">✦ EXCLUSIVE DIRECT BOOKING PRIVILEGES ✦</span>
+            <h2 class="section-title">สิทธิพิเศษระดับ VIP <span class="gold-text">เมื่อจองตรงกับ บอนนี่</span></h2>
+            <p class="section-desc">
+                มอบประสบการณ์การพักผ่อนที่เหนือกว่า พร้อมความคุ้มค่าและความอุ่นใจสูงสุดในทุกการเดินทางสู่เชียงใหม่
+            </p>
+        </div>
+
+        <div class="perks-grid">
+            <div class="perk-card">
+                <div class="perk-icon"><i class="fa-solid fa-gem"></i></div>
+                <div class="perk-info">
+                    <h4>การันตีราคาดีที่สุด (Best Rate Guarantee)</h4>
+                    <p>รับประกันราคาคุ้มค่าที่สุดเมื่อจองตรงผ่านเว็บไซต์ ไม่มีค่าธรรมเนียมแฝง และรับเครดิตสปาเพิ่มทันที ฿1,000</p>
+                </div>
+            </div>
+            <div class="perk-card">
+                <div class="perk-icon"><i class="fa-solid fa-champagne-glasses"></i></div>
+                <div class="perk-info">
+                    <h4>Floating Breakfast & อาหารเช้ากูร์เมต์</h4>
+                    <p>อภินันทนาการอาหารเช้าเสิร์ฟลอยน้ำในสระส่วนตัว พร้อมเซ็ตน้ำชา Afternoon Tea ยามบ่ายริมระเบียงชมหมอก</p>
+                </div>
+            </div>
+            <div class="perk-card">
+                <div class="perk-icon"><i class="fa-solid fa-van-shuttle"></i></div>
+                <div class="perk-info">
+                    <h4>รถลีมูซีนรับ-ส่งสนามบินเชียงใหม่ฟรี</h4>
+                    <p>บริการรับ-ส่ง VIP ส่วนตัวระหว่างท่าอากาศยานนานาชาติเชียงใหม่และรีสอร์ต สะดวกสบายไร้กังวลตลอดทริป</p>
+                </div>
+            </div>
+            <div class="perk-card">
+                <div class="perk-icon"><i class="fa-solid fa-clock-rotate-left"></i></div>
+                <div class="perk-info">
+                    <h4>ยืดหยุ่นเวลา Early Check-in & Late Check-out</h4>
+                    <p>เช็คอินล่วงหน้าหรือขยายเวลาเช็คเอาท์ได้ฟรีตามความพร้อมของห้องพัก เพื่อให้คุณดื่มด่ำความสุขได้นานยิ่งขึ้น</p>
+                </div>
+            </div>
+            <div class="perk-card">
+                <div class="perk-icon"><i class="fa-solid fa-spa"></i></div>
+                <div class="perk-info">
+                    <h4>บริการ Welcome Herbal Spa 30 นาที</h4>
+                    <p>ผ่อนคลายกล้ามเนื้อและความเหนื่อยล้าจากการเดินทางด้วยทรีตเมนต์สมุนไพรล้านนาสดทันทีที่เดินทางมาถึง</p>
+                </div>
+            </div>
+            <div class="perk-card">
+                <div class="perk-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                <div class="perk-info">
+                    <h4>ล็อกห้องพักทันที 100% (Instant Confirmation)</h4>
+                    <p>ยืนยันสิทธิ์ห้องพักแบบ Real-time ด้วยระบบ Concurrency Lock ปลอดภัย ไม่มีการจองซ้อนหรือยกเลิกกะทันหัน</p>
                 </div>
             </div>
         </div>
@@ -1569,35 +1700,35 @@
     <!-- 5. Robust Backend & Concurrency Simulator Section -->
     <section class="section-backend" id="backend-section">
         <div class="section-header">
-            <span class="section-tag" style="color: #38bdf8;">✦ ARCHITECTURAL INTEGRITY & BACKEND ROBUSTNESS ✦</span>
-            <h2 class="section-title">หลังบ้านทรงพลัง <span style="color: #38bdf8;">Concurrency Guard Engine</span></h2>
+            <span class="section-tag" style="color: #38bdf8;">✦ 100% RELIABILITY & ROOM GUARANTEE ✦</span>
+            <h2 class="section-title">ระบบการันตีห้องพักอัจฉริยะ <span style="color: #38bdf8;">มั่นใจได้ห้อง 100% ไร้กังวล</span></h2>
             <p class="section-desc">
-                แม้หน้าบ้านจะงดงามวิจิตรตระการตา แต่ระบบหลังบ้านทำงานด้วย Python และกลไก Concurrency Mutex 
-                เพื่อป้องกันปัญหา <strong>"การกดจองห้องชุดห้องสุดท้ายพร้อมกัน (Double-Booking Race Condition)"</strong>
+                เพื่อความสบายใจสูงสุดในการวางแผนพักผ่อน Bonnie Resort ติดตั้งระบบตรวจสอบและล็อกสิทธิ์ห้องพักแบบ Real-time Concurrency Atomic Lock 
+                ขจัดปัญหาห้องซ้ำซ้อน (Double Booking) หรือการถูกยกเลิกกะทันหันในชั่วโมงเร่งด่วนได้อย่างสิ้นเชิง
             </p>
         </div>
 
         <div class="backend-card">
             <div class="backend-header">
                 <div class="backend-title">
-                    <i class="fa-solid fa-microchip"></i>
-                    <span>การจำลองเหตุการณ์จริง: Concurrency Race-Condition Simulator</span>
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <span>การจำลองการทำงาน: Real-Time High-Speed Concurrency Simulator</span>
                 </div>
                 <span style="font-size: 0.85rem; color: #94a3b8;">
-                    Python Core: <code>asyncio.Lock</code> + Atomic Inventory Check
+                    สถาปัตยกรรม Python Core: <code>asyncio.Lock</code> + Atomic Inventory Check
                 </span>
             </div>
 
             <!-- Terminal Console Logs -->
             <div class="sim-console" id="sim-console-output">
-                <div style="color: #64748b;">// Bonnie Concurrency Kernel v1.0 Ready.</div>
-                <div style="color: #64748b;">// ห้อง 'บอนนี่ แกรนด์ ล้านนา สวีท' มีสถานะเหลือเพียง: 1 ห้องสุดท้าย</div>
-                <div>[SYSTEM]: กดปุ่มด้านล่างเพื่อปล่อย Request การจองพร้อมกัน 5 คำขอในเสี้ยววินาทีเดียวกัน...</div>
+                <div style="color: #64748b;">// Bonnie Concurrency Kernel v2.0 Ready.</div>
+                <div style="color: #64748b;">// ห้อง 'บอนนี่ แกรนด์ ล้านนา สวีท' มีสถานะคงเหลือ: 1 ห้องสุดท้าย</div>
+                <div>[SYSTEM]: กดปุ่มด้านล่างเพื่อทดสอบระบบจำลองการกดจองห้องเดียวกันพร้อมกัน 5 คำขอในเสี้ยว 0.01 วินาที...</div>
             </div>
 
             <div class="sim-actions">
                 <button class="btn-backend-sim" id="btn-run-sim" onclick="runConcurrencySimulation()">
-                    <i class="fa-solid fa-bolt"></i> จำลอง 5 ผู้ใช้แย่งจองห้องเดียวกันใน 0.01 วินาที
+                    <i class="fa-solid fa-bolt"></i> จำลอง 5 คำขอแย่งจองห้องเดียวกันใน 0.01 วินาที
                 </button>
                 <button class="btn-reset-sim" onclick="resetSimulation()">
                     <i class="fa-solid fa-rotate-left"></i> รีเซ็ตคลังห้องพักทดสอบ
@@ -1616,29 +1747,30 @@
             <div class="wax-seal">🪷</div>
             
             <h3 style="text-align: center; color: var(--gold-light); font-size: 1.6rem; margin-bottom: 8px;">
-                ยืนยันการจองห้องพักสำเร็จ
+                ยืนยันการสำรองวิลล่าสำเร็จ
             </h3>
             <p style="text-align: center; color: var(--text-muted); font-size: 0.88rem; margin-bottom: 20px;">
-                BONNIE RESORT CHIANG MAI RESERVATION
+                BONNIE RESORT & SANCTUARY · CHIANG MAI
             </p>
 
             <div class="confirmation-box">
                 <div style="font-size: 0.8rem; color: var(--gold-primary); text-transform: uppercase;">
-                    Official Booking Token (Concurrency-Safe Verified)
+                    Official Reservation Voucher (Guaranteed Real-time Confirmation)
                 </div>
                 <div class="token-display" id="modal-token-display">
-                    BONNIE-2026-CHIANGMAI-882
+                    BONNIE-2026-VIP-882
                 </div>
             </div>
 
             <div style="font-size: 0.9rem; line-height: 1.9; color: var(--text-light); margin-bottom: 25px;">
                 <div>🪷 <strong>ห้องพัก:</strong> <span id="modal-room-name">บอนนี่ แกรนด์ ล้านนา สวีท</span></div>
-                <div>📅 <strong>ช่วงเวลาเข้าพัก:</strong> 1 ตุลาคม 2026 - 3 ตุลาคม 2026 (2 คืน)</div>
-                <div>🛡️ <strong>ระบบความปลอดภัย:</strong> บันทึกข้อมูลลงฐานข้อมูลแบบ Concurrency Atomic Lock สำเร็จ</div>
+                <div>📅 <strong>ช่วงเวลาเข้าพัก:</strong> 1 ตุลาคม 2026 - 3 ตุลาคม 2026 (2 คืน 3 วัน)</div>
+                <div>🎁 <strong>อภินันทนาการ:</strong> อาหารเช้ากูร์เมต์, รถลีมูซีนรับ-ส่งสนามบิน, Floating Breakfast, บัตเลอร์ 24 ชม.</div>
+                <div>🛡️ <strong>การันตีห้องพัก:</strong> ล็อกสิทธิ์ในระบบสำเร็จ ปลอดภัย ไม่มีการจองซ้อนหรือยกเลิก 100%</div>
             </div>
 
             <button class="btn-royal" style="width: 100%; justify-content: center;" onclick="closeBookingModal()">
-                <i class="fa-solid fa-check"></i> รับทราบและบันทึกใบยืนยันการจอง
+                <i class="fa-solid fa-check"></i> บันทึกเอกสารยืนยันการจอง
             </button>
         </div>
     </div>
@@ -1646,10 +1778,11 @@
     <!-- Footer -->
     <footer>
         <div class="footer-logo">🪷</div>
-        <h3 style="color: #fff; margin-bottom: 10px; font-size: 1.3rem;">BONNIE RESORT & SANCTUARY</h3>
+        <h3 style="color: #fff; margin-bottom: 10px; font-size: 1.3rem; letter-spacing: 2px;">BONNIE RESORT & SANCTUARY</h3>
         <p class="footer-text">
             Mae Rim Mountain Valley, Chiang Mai 50180, Thailand.<br>
-            การหลอมรวมสุนทรียภาพแห่งศิลปะภาพเสมือนจริง 360° และระบบวิศวกรรมซอฟต์แวร์หลังบ้านที่มั่นคง
+            โทร: +66 (0) 53 888 999 · อีเมล: reservations@bonnie-chiangmai.com<br>
+            สุนทรียภาพแห่งการพักผ่อนเหนือระดับท่ามกลางขุนเขา ผ่านมุมมองเสมือนจริง 360° และระบบการจองตรงการันตีห้องพัก 100%
         </p>
         <div style="color: #555; font-size: 0.8rem;">
             &copy; 2026 Bonnie Resort Chiang Mai. All Rights Reserved.
@@ -1708,52 +1841,41 @@
             particles.push(new GoldParticle());
         }
 
-        function animateParticles() {
+        function animateGoldDust() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             particles.forEach(p => {
                 p.update();
                 p.draw();
             });
-            requestAnimationFrame(animateParticles);
+            requestAnimationFrame(animateGoldDust);
         }
-        animateParticles();
-
-        // Navbar Scroll Effect
-        window.addEventListener('scroll', () => {
-            const nav = document.getElementById('main-nav');
-            if (window.scrollY > 50) {
-                nav.classList.add('scrolled');
-            } else {
-                nav.classList.remove('scrolled');
-            }
-        });
+        animateGoldDust();
 
         // ==========================================
-        // 2. Synthesized Baroque Audio Ambience (Web Audio API)
+        // 2. Synthesized Relaxing Lanna Ambience Audio (Web Audio API)
         // ==========================================
         let audioCtx = null;
         let isAudioPlaying = false;
         let audioInterval = null;
 
-        const baroqueChords = [
-            [261.63, 329.63, 392.00], // C major
-            [220.00, 261.63, 329.63], // A minor
-            [174.61, 220.00, 261.63], // F major
-            [196.00, 246.94, 293.66], // G major
-            [164.81, 207.65, 246.94]  // E minor baroque
+        const lannaChords = [
+            [261.63, 329.63, 392.00, 523.25], // C tranquil chord
+            [220.00, 261.63, 329.63, 440.00], // A minor acoustic chime
+            [174.61, 220.00, 261.63, 349.23], // F serene warm
+            [196.00, 246.94, 293.66, 392.00]  // G nature peaceful
         ];
 
-        function playHarpsichordTone(freq, duration = 2.5) {
+        function playLannaChime(freq, duration = 3.2) {
             if (!audioCtx) return;
             const osc = audioCtx.createOscillator();
             const gain = audioCtx.createGain();
             
-            // Harpsichord-like timbre (triangle with slight harmonics)
-            osc.type = 'triangle';
+            // Soothing sine / soft wave
+            osc.type = 'sine';
             osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
             
-            gain.gain.setValueAtTime(0.08, audioCtx.currentTime);
-            gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + duration);
+            gain.gain.setValueAtTime(0.06, audioCtx.currentTime);
+            gain.gain.exponentialRampToValueAtTime(0.00005, audioCtx.currentTime + duration);
             
             osc.connect(gain);
             gain.connect(audioCtx.destination);
@@ -1762,7 +1884,7 @@
             osc.stop(audioCtx.currentTime + duration);
         }
 
-        function toggleBaroqueAudio() {
+        function toggleLannaAudio() {
             const btn = document.getElementById('audio-toggle-btn');
             if (!isAudioPlaying) {
                 if (!audioCtx) {
@@ -1773,27 +1895,26 @@
                 }
                 isAudioPlaying = true;
                 btn.classList.add('audio-active');
-                btn.querySelector('span').innerText = 'เสียงบรรเลง: เปิด';
+                btn.querySelector('span').innerText = 'เสียงบรรเลง: เปิดอยู่';
                 
                 let chordIndex = 0;
-                // Play immediate chord
-                baroqueChords[0].forEach((f, i) => setTimeout(() => playHarpsichordTone(f), i * 150));
+                lannaChords[0].forEach((f, i) => setTimeout(() => playLannaChime(f), i * 200));
 
                 audioInterval = setInterval(() => {
-                    chordIndex = (chordIndex + 1) % baroqueChords.length;
-                    const chord = baroqueChords[chordIndex];
+                    chordIndex = (chordIndex + 1) % lannaChords.length;
+                    const chord = lannaChords[chordIndex];
                     chord.forEach((freq, idx) => {
-                        setTimeout(() => playHarpsichordTone(freq), idx * 160);
+                        setTimeout(() => playLannaChime(freq), idx * 220);
                     });
-                }, 3200);
+                }, 3800);
             } else {
                 isAudioPlaying = false;
                 btn.classList.remove('audio-active');
-                btn.querySelector('span').innerText = 'ดนตรีราชสำนัก';
+                btn.querySelector('span').innerText = 'ดนตรีผ่อนคลาย';
                 clearInterval(audioInterval);
             }
         }
-        document.getElementById('audio-toggle-btn').addEventListener('click', toggleBaroqueAudio);
+        document.getElementById('audio-toggle-btn').addEventListener('click', toggleLannaAudio);
 
         // ==========================================
         // 3. Pannellum 360° Interactive Panorama Viewer
@@ -2041,7 +2162,7 @@
             const btn = document.getElementById('btn-run-sim');
             btn.disabled = true;
 
-            logToConsole("⚡ กำลังจำลองผู้ใช้งาน 5 คน (Client A, B, C, D, E) กดจองห้อง 'La Chambre du Roi' พร้อมกันในเสี้ยว millisecond...", 'lock');
+            logToConsole("⚡ กำลังจำลองผู้ใช้งาน 5 คน (Client A, B, C, D, E) กดจองห้อง 'บอนนี่ แกรนด์ ล้านนา สวีท' พร้อมกันใน 0.01 วินาที...", 'lock');
 
             const clients = [
                 { id: 'Client A', name: 'คุณภัทรพล (Bangkok)' },
@@ -2053,7 +2174,7 @@
 
             // Simulate server transaction lock
             setTimeout(() => {
-                logToConsole("🔒 [PYTHON BACKEND]: Acquired asyncio.Lock(room_id='room_king_suite') - Atomic Guard Activated.", 'lock');
+                logToConsole("🔒 [CONCURRENCY GUARD]: ล็อกคลังห้องพักแบบ Atomic Guard ป้องกันการแย่งจอง (asyncio.Lock)", 'lock');
                 
                 let winnerDecided = false;
 
@@ -2068,14 +2189,14 @@
                             document.getElementById('inv-room_king_suite').style.borderColor = "#ef4444";
                             document.getElementById('inv-room_king_suite').style.color = "#fca5a5";
 
-                            logToConsole(`✅ [200 OK]: ยืนยันการจองให้ '${client.id}: ${client.name}' สำเร็จ! (Token: BONNIE-${Math.floor(Math.random()*89999+10000)})`, 'success');
-                            logToConsole(`📉 [INVENTORY]: คงเหลือ 0 ห้อง - ล็อคคลังข้อมูลทันที ป้องกัน Double Booking!`, 'lock');
+                            logToConsole(`✅ [200 OK]: ยืนยันการจองให้ '${client.id}: ${client.name}' สำเร็จทันที! (Token: BONNIE-${Math.floor(Math.random()*89999+10000)})`, 'success');
+                            logToConsole(`📉 [INVENTORY]: คงเหลือ 0 ห้อง - ล็อคคลังข้อมูล ป้องกัน Double Booking สำเร็จ 100%!`, 'lock');
                         } else {
-                            logToConsole(`🛑 [409 CONFLICT]: บล็อก '${client.id}: ${client.name}' - ห้องเต็มแล้ว! ระบบป้องกัน Race Condition ทำงานสมบูรณ์แบบ`, 'block');
+                            logToConsole(`🛑 [409 CONFLICT]: บล็อกคำขอเกิน '${client.id}: ${client.name}' - ห้องเต็มแล้ว! ป้องกันการจองซ้อนอย่างนุ่มนวล`, 'block');
                         }
 
                         if (idx === clients.length - 1) {
-                            logToConsole("🔓 [PYTHON BACKEND]: Released asyncio.Lock() - ทุกคำขอได้รับการจัดการอย่างถูกต้อง 100%", 'lock');
+                            logToConsole("🔓 [CONCURRENCY GUARD]: ปลดล็อกเซสชัน - ทุกคำขอได้รับการประมวลผลอย่างแม่นยำ ไร้ข้อผิดพลาด", 'lock');
                             btn.disabled = false;
                         }
                     }, idx * 120);
@@ -2094,7 +2215,7 @@
             const consoleBox = document.getElementById('sim-console-output');
             consoleBox.innerHTML = `
                 <div style="color: #64748b;">// Reset completed. คลังห้องพักกลับสู่ค่าเริ่มต้น</div>
-                <div style="color: #64748b;">// ห้อง 'บอนนี่ แกรนด์ ล้านนา สวีท' มีสถานะเหลือ: 1 ห้อง</div>
+                <div style="color: #64748b;">// ห้อง 'บอนนี่ แกรนด์ ล้านนา สวีท' มีสถานะคงเหลือ: 1 ห้อง</div>
             `;
         }
 
@@ -2112,7 +2233,7 @@
             if (roomId === 'room_orangerie') roomTitle = "แม่ริม ฟอเรสต์ แซงค์ทัวรี (Mae Rim Forest Sanctuary)";
 
             roomNameBox.innerText = roomTitle;
-            tokenBox.innerText = `BONNIE-2026-CHIANGMAI-${randomCode}`;
+            tokenBox.innerText = `BONNIE-2026-VIP-${randomCode}`;
             modal.style.display = 'flex';
         }
 
