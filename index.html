@@ -1411,26 +1411,35 @@
             width: 44px;
             height: 44px;
             border-radius: 50%;
-            background: #eef4ff;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.12) 0%, rgba(38, 28, 20, 0.85) 100%);
+            border: 1px solid rgba(212, 175, 55, 0.35);
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 1.15rem;
-            color: #2563eb;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 10px rgba(37, 99, 235, 0.15);
+            color: var(--gold-light);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(255, 235, 175, 0.15);
         }
 
         .service-item-btn:hover .service-icon-circle {
-            background: #dbeafe;
-            color: #1d4ed8;
-            transform: scale(1.05);
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.32) 0%, rgba(184, 134, 11, 0.5) 100%);
+            border-color: var(--gold-primary);
+            color: #ffffff;
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.35), 0 0 14px rgba(212, 175, 55, 0.25);
+        }
+
+        .service-item-btn:hover .service-title {
+            color: var(--gold-light);
         }
 
         .service-item-btn.active .service-icon-circle {
             background: var(--gold-gradient);
+            border: 1px solid #ffd700;
             color: #1a1002;
-            box-shadow: 0 4px 14px rgba(212, 175, 55, 0.45);
+            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.6), 0 0 15px rgba(212, 175, 55, 0.35);
+            transform: scale(1.06);
         }
 
         .service-title {
