@@ -843,17 +843,17 @@
         /* 5. Robust Backend & Concurrency Simulator Section */
         .section-backend {
             padding: 110px 8%;
-            background: linear-gradient(180deg, #0C0A09 0%, #0d131f 50%, #0C0A09 100%);
+            background: linear-gradient(180deg, #0C0A09 0%, #161210 50%, #0C0A09 100%);
             position: relative;
             z-index: 2;
         }
 
         .backend-card {
-            background: rgba(15, 23, 42, 0.8);
-            border: 1px solid #38bdf8;
+            background: rgba(22, 18, 16, 0.9);
+            border: 1px solid var(--glass-border);
             border-radius: 20px;
             padding: 40px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.8), 0 0 30px rgba(56, 189, 248, 0.15);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.8), 0 0 30px rgba(212, 175, 55, 0.1);
             margin-top: 40px;
         }
 
@@ -870,7 +870,7 @@
             display: flex;
             align-items: center;
             gap: 12px;
-            color: #38bdf8;
+            color: var(--gold-light);
             font-size: 1.4rem;
         }
 
@@ -881,7 +881,7 @@
             padding: 20px;
             font-family: 'Courier New', Courier, monospace;
             font-size: 0.88rem;
-            color: #93c5fd;
+            color: var(--gold-light);
             height: 220px;
             overflow-y: auto;
             margin-bottom: 25px;
@@ -913,11 +913,11 @@
         }
 
         .btn-backend-sim {
-            background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
-            color: #fff;
+            background: var(--gold-gradient);
+            color: #1a1002;
             padding: 12px 26px;
             border-radius: 8px;
-            border: 1px solid #38bdf8;
+            border: 1px solid var(--gold-primary);
             font-family: inherit;
             font-size: 0.95rem;
             cursor: pointer;
@@ -925,12 +925,12 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            font-weight: 500;
+            font-weight: 600;
         }
 
         .btn-backend-sim:hover {
-            background: #0284c7;
-            box-shadow: 0 0 20px rgba(56, 189, 248, 0.5);
+            background: linear-gradient(135deg, #fff7d6 0%, #e5c378 100%);
+            box-shadow: var(--gold-glow);
             transform: translateY(-2px);
         }
 
@@ -947,7 +947,7 @@
 
         .btn-reset-sim:hover {
             color: #fff;
-            border-color: #94a3b8;
+            border-color: var(--gold-primary);
         }
 
         /* Booking Modal with Wax Seal */
@@ -1411,23 +1411,33 @@
             width: 44px;
             height: 44px;
             border-radius: 50%;
-            background: linear-gradient(135deg, rgba(212, 175, 55, 0.12) 0%, rgba(38, 28, 20, 0.85) 100%);
-            border: 1px solid rgba(212, 175, 55, 0.35);
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.14) 0%, rgba(38, 28, 20, 0.9) 100%) !important;
+            border: 1.5px solid rgba(212, 175, 55, 0.45) !important;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 1.15rem;
-            color: var(--gold-light);
+            color: var(--gold-light) !important;
             transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(255, 235, 175, 0.15);
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(255, 235, 175, 0.2);
+        }
+
+        .service-icon-circle i {
+            color: var(--gold-light) !important;
+            transition: color 0.3s ease, transform 0.3s ease;
         }
 
         .service-item-btn:hover .service-icon-circle {
-            background: linear-gradient(135deg, rgba(212, 175, 55, 0.32) 0%, rgba(184, 134, 11, 0.5) 100%);
-            border-color: var(--gold-primary);
-            color: #ffffff;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.38) 0%, rgba(184, 134, 11, 0.6) 100%) !important;
+            border-color: var(--gold-primary) !important;
+            color: #ffffff !important;
             transform: scale(1.1);
-            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.35), 0 0 14px rgba(212, 175, 55, 0.25);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.45), 0 0 14px rgba(212, 175, 55, 0.3);
+        }
+
+        .service-item-btn:hover .service-icon-circle i {
+            color: #ffffff !important;
+            transform: scale(1.05);
         }
 
         .service-item-btn:hover .service-title {
@@ -1435,11 +1445,15 @@
         }
 
         .service-item-btn.active .service-icon-circle {
-            background: var(--gold-gradient);
-            border: 1px solid #ffd700;
-            color: #1a1002;
-            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.6), 0 0 15px rgba(212, 175, 55, 0.35);
+            background: var(--gold-gradient) !important;
+            border: 1.5px solid #ffd700 !important;
+            color: #1a1002 !important;
+            box-shadow: 0 4px 22px rgba(212, 175, 55, 0.7), 0 0 15px rgba(212, 175, 55, 0.4);
             transform: scale(1.06);
+        }
+
+        .service-item-btn.active .service-icon-circle i {
+            color: #1a1002 !important;
         }
 
         .service-title {
@@ -2560,8 +2574,8 @@
     <!-- 5. Robust Backend & Concurrency Simulator Section -->
     <section class="section-backend" id="backend-section">
         <div class="section-header">
-            <span class="section-tag" style="color: #38bdf8;">✦ 100% RELIABILITY & ROOM GUARANTEE ✦</span>
-            <h2 class="section-title">ระบบการันตีห้องพักอัจฉริยะ <span style="color: #38bdf8;">มั่นใจได้ห้อง 100% ไร้กังวล</span></h2>
+            <span class="section-tag" style="color: var(--gold-light);">✦ 100% RELIABILITY & ROOM GUARANTEE ✦</span>
+            <h2 class="section-title">ระบบการันตีห้องพักอัจฉริยะ <span style="color: var(--gold-light);">มั่นใจได้ห้อง 100% ไร้กังวล</span></h2>
             <p class="section-desc">
                 เพื่อความสบายใจสูงสุดในการวางแผนพักผ่อน Bonnie Resort ติดตั้งระบบตรวจสอบและล็อกสิทธิ์ห้องพักแบบ Real-time Concurrency Atomic Lock 
                 ขจัดปัญหาห้องซ้ำซ้อน (Double Booking) หรือการถูกยกเลิกกะทันหันในชั่วโมงเร่งด่วนได้อย่างสิ้นเชิง
