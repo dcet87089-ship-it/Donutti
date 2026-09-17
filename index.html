@@ -1316,6 +1316,227 @@
             .tour-viewport-container { height: 340px; }
             .price-val { font-size: 1.25rem; }
         }
+
+        /* 4.2 Location & Map Section */
+        .section-location {
+            padding: 90px 6%;
+            background: linear-gradient(180deg, rgba(12, 10, 9, 0.95) 0%, rgba(20, 16, 14, 0.98) 50%, rgba(12, 10, 9, 0.95) 100%);
+            position: relative;
+            z-index: 2;
+        }
+
+        .location-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 36px;
+            max-width: 1280px;
+            margin: 40px auto 0;
+            align-items: stretch;
+        }
+
+        .location-card-info {
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 36px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(12px);
+        }
+
+        .location-address-box {
+            margin-bottom: 24px;
+        }
+
+        .location-tag-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 14px;
+            background: rgba(212, 175, 55, 0.15);
+            border: 1px solid var(--gold-primary);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: var(--gold-light);
+            margin-bottom: 16px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .location-hotel-title {
+            font-size: 1.6rem;
+            color: #fff;
+            margin-bottom: 8px;
+            font-family: 'Cinzel', 'Noto Serif Thai', serif;
+        }
+
+        .location-hotel-subtitle {
+            font-size: 0.95rem;
+            color: var(--gold-light);
+            margin-bottom: 16px;
+            letter-spacing: 1px;
+        }
+
+        .location-address-text {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .location-landmarks {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 14px;
+            margin: 20px 0 28px;
+        }
+
+        .landmark-item {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(212, 175, 55, 0.18);
+            border-radius: 12px;
+            padding: 12px 14px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .landmark-item:hover {
+            border-color: var(--gold-primary);
+            background: rgba(212, 175, 55, 0.08);
+            transform: translateY(-2px);
+        }
+
+        .landmark-icon {
+            font-size: 1.25rem;
+            color: var(--gold-primary);
+            width: 32px;
+            text-align: center;
+        }
+
+        .landmark-text h5 {
+            font-size: 0.88rem;
+            color: var(--text-light);
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .landmark-text span {
+            font-size: 0.76rem;
+            color: var(--gold-light);
+        }
+
+        .location-action-btns {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 10px;
+        }
+
+        .location-action-btns a {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+            justify-content: center;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 0.92rem;
+            font-weight: 600;
+        }
+
+        .location-card-map {
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            min-height: 440px;
+            position: relative;
+        }
+
+        .map-wrapper {
+            width: 100%;
+            height: 100%;
+            min-height: 440px;
+            position: relative;
+        }
+
+        .map-wrapper iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            display: block;
+        }
+
+        .map-overlay-info {
+            position: absolute;
+            bottom: 16px;
+            left: 16px;
+            right: 16px;
+            background: rgba(12, 10, 9, 0.92);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            padding: 12px 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(10px);
+            z-index: 10;
+        }
+
+        .map-overlay-title {
+            font-size: 0.88rem;
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .map-overlay-sub {
+            font-size: 0.76rem;
+            color: var(--gold-light);
+        }
+
+        @media (max-width: 768px) {
+            .section-location {
+                padding: 60px 4% 40px;
+            }
+            .location-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+            .location-card-info {
+                padding: 22px 18px;
+            }
+            .location-landmarks {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+            .location-card-map {
+                min-height: 320px;
+            }
+            .map-wrapper {
+                min-height: 320px;
+            }
+            .location-action-btns {
+                flex-direction: column;
+            }
+            .location-action-btns a {
+                width: 100%;
+            }
+            .map-overlay-info {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 6px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1335,9 +1556,10 @@
 
         <ul class="nav-links">
             <li><a href="#hero" class="active">หน้าแรก</a></li>
-            <li><a href="#tour-section">ทัวร์ 360° เสมือนจริง</a></li>
+            <li><a href="#tour-section">ทัวร์ 360° ขุนเขาล้านนา</a></li>
             <li><a href="#suites-section">วิลล่า & สวีท</a></li>
             <li><a href="#perks-section">เอกสิทธิ์การจองตรง</a></li>
+            <li><a href="#location-section">โลเคชั่น & แผนที่</a></li>
             <li><a href="#backend-section">การันตีห้องพัก 100%</a></li>
         </ul>
 
@@ -1345,7 +1567,7 @@
             <!-- Northern Thai Music Ambient Audio Toggle -->
             <button class="audio-btn" id="audio-toggle-btn" title="เปิด/ปิด ดนตรีล้านนาบำบัดผ่อนคลาย (Lanna Spa Ambience)">
                 <i class="fa-solid fa-spa"></i>
-                <span>ดนตรีผ่อนคลาย</span>
+                <span>ดนตรีล้านนา</span>
                 <div class="sound-wave" id="sound-bars">
                     <span class="sound-bar"></span>
                     <span class="sound-bar"></span>
@@ -1363,18 +1585,21 @@
                 <i class="fa-solid fa-mountain-sun"></i> THE ULTIMATE CHIANG MAI LUXURY MOUNTAIN SANCTUARY
             </div>
             <h1 class="hero-title">
-                หลีกหนีสู่ความสงบแห่งขุนเขาแม่ริม<br>
+                หลีกหนีสู่ความสงบแห่งขุนเขาและมนต์เสน่ห์เชียงใหม่<br>
                 <span class="gold-text">สัมผัสวิลล่าสุดหรูเสมือนจริง 360°</span>
             </h1>
             <p class="hero-subtitle">
                 เปิดประตูสู่วันพักผ่อนเหนือระดับที่ผสานเสน่ห์สถาปัตยกรรมล้านนาร่วมสมัยเข้ากับธรรมชาติอันบริสุทธิ์
                 สำรวจเรือนไม้สักทอง พูลวิลล่าส่วนตัว และวิวหมอกพาโนรามาได้รอบทิศทาง 360° เสมือนยืนอยู่ ณ ที่จริง
-                พร้อมระบบจองตรงการันตีห้องพักให้คุณทันที 100%
+                พร้อมระบบจองตรงการันตีห้องพักให้คุณทันที 100% ไร้กังวล
             </p>
 
             <div class="hero-actions">
                 <a href="#tour-section" class="btn-royal">
                     <i class="fa-solid fa-compass"></i> สำรวจ 360° ทุกมุมมอง
+                </a>
+                <a href="#location-section" class="btn-outline-gold">
+                    <i class="fa-solid fa-map-location-dot"></i> ดูโลเคชั่น & แผนที่
                 </a>
                 <a href="#suites-section" class="btn-outline-gold">
                     <i class="fa-solid fa-bed"></i> ชมวิลล่า & รับสิทธิพิเศษ
@@ -1411,7 +1636,7 @@
                     <span>ระบบการันตีห้องว่าง (Instant Confirmation): <strong>พร้อมยืนยันสิทธิ์ทันที</strong></span>
                 </div>
                 <div style="color: var(--gold-light);">
-                    <i class="fa-solid fa-gift"></i> สิทธิพิเศษวันนี้: จองตรงรับฟรี Floating Breakfast & Afternoon Tea
+                    <i class="fa-solid fa-gift"></i> สิทธิพิเศษวันนี้: จองตรงรับฟรี Floating Breakfast & รถรับส่งสนามบิน
                 </div>
             </div>
 
@@ -1483,7 +1708,7 @@
                 <i class="fa-solid fa-street-view"></i> กำลังชม: 🪷 บอนนี่ แกรนด์ ล้านนา สวีท (เรือนไม้สักทอง)
             </div>
 
-            <!-- Directional Quick Chooser Bar (เลือกดูฝั่งต่างๆ) -->
+            <!-- Directional Quick Chooser Bar -->
             <div class="tour-direction-nav">
                 <span class="direction-label"><i class="fa-solid fa-compass"></i> เลือกดูฝั่ง:</span>
                 <button class="dir-btn" onclick="panToDirection('left')" title="หมุนกล้องไปดูฝั่งซ้าย">
@@ -1546,7 +1771,7 @@
         </div>
 
         <div class="suites-grid">
-            <!-- Suite 1: Bonnie Grand Lanna Suite (Different non-duplicate image) -->
+            <!-- Suite 1 -->
             <div class="suite-card">
                 <div class="suite-img-wrap">
                     <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?q=80&w=1200" alt="บอนนี่ แกรนด์ ล้านนา สวีท">
@@ -1577,7 +1802,7 @@
                 </div>
             </div>
 
-            <!-- Suite 2: Doi Suthep Sunset Pool Villa -->
+            <!-- Suite 2: Doi Suthep Sunset Pool Villa (Real photo from The Clover Chiang Mai) -->
             <div class="suite-card">
                 <div class="suite-img-wrap">
                     <img src="images/pool_villa.jpg" onerror="this.src='https://ak-d.tripcdn.com/images/1mc0712000t58p6sx84CF_Z_1280_853_R50_Q90.jpg'" alt="ดอยสุเทพ ซันเซ็ต พูลวิลล่า">
@@ -1627,6 +1852,7 @@
                             <span><i class="fa-solid fa-vector-square"></i> 110 ตร.ม.</span>
                             <span><i class="fa-solid fa-hot-tub-person"></i> ออนเซ็นไม้สนกลางแจ้ง</span>
                             <span><i class="fa-solid fa-spa"></i> สปาอโรมาทรีตเมนต์</span>
+                            <span><i class="fa-solid fa-mug-hot"></i> ชาอัสสัมออร์แกนิก</span>
                         </div>
                     </div>
                     <div class="suite-footer">
@@ -1692,6 +1918,103 @@
                 <div class="perk-info">
                     <h4>ล็อกห้องพักทันที 100% (Instant Confirmation)</h4>
                     <p>ยืนยันสิทธิ์ห้องพักแบบ Real-time ด้วยระบบ Concurrency Lock ปลอดภัย ไม่มีการจองซ้อนหรือยกเลิกกะทันหัน</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4.2 Prime Location & Directions Section -->
+    <section class="section-location" id="location-section">
+        <div class="section-header">
+            <span class="section-tag">✦ PRIME LOCATION & ACCESSIBILITY ✦</span>
+            <h2 class="section-title">โลเคชั่น & การเดินทาง <span class="gold-text">ใจกลางเชียงใหม่ ใกล้ชิดดอยสุเทพ</span></h2>
+            <p class="section-desc">
+                สัมผัสการพักผ่อนอันเงียบสงบเป็นส่วนตัวที่เดินทางสะดวกอย่างลงตัว โอบล้อมด้วยวิวทิวเขา ใกล้ย่านนิมมานฯ 
+                ศูนย์ประชุมนานาชาติฯ และสนามบินเชียงใหม่ พร้อมบริการรถลีมูซีนรับ-ส่งฟรี
+            </p>
+        </div>
+
+        <div class="location-grid">
+            <!-- Left Info Card -->
+            <div class="location-card-info">
+                <div class="location-address-box">
+                    <div class="location-tag-badge">
+                        <i class="fa-solid fa-location-dot"></i> พิกัดสถานที่จริง เชียงใหม่
+                    </div>
+                    <h3 class="location-hotel-title">The Clover Hotel & Bonnie Sanctuary</h3>
+                    <div class="location-hotel-subtitle">ต.ช้างเผือก อ.เมือง จ.เชียงใหม่</div>
+                    <p class="location-address-text">
+                        <i class="fa-solid fa-map-pin" style="color: var(--gold-primary); margin-right: 6px;"></i>
+                        <strong>ที่อยู่:</strong> 2/12 ถนนเลียบคลองชลประทาน ตำบลช้างเผือก อำเภอเมืองเชียงใหม่ เชียงใหม่ 50300<br>
+                        <i class="fa-solid fa-phone" style="color: var(--gold-primary); margin-right: 6px;"></i>
+                        <strong>โทรศัพท์:</strong> +66 (0) 53 888 999 / +66 (0) 53 218 888<br>
+                        <i class="fa-regular fa-clock" style="color: var(--gold-primary); margin-right: 6px;"></i>
+                        <strong>เวลาเช็คอิน:</strong> 14:00 น. | <strong>เวลาเช็คเอาท์:</strong> 12:00 น. (Late Check-out ฟรีสำหรับผู้จองตรง)
+                    </p>
+                </div>
+
+                <!-- Distance Landmarks -->
+                <div class="location-landmarks">
+                    <div class="landmark-item">
+                        <div class="landmark-icon"><i class="fa-solid fa-plane-departure"></i></div>
+                        <div class="landmark-text">
+                            <h5>สนามบินเชียงใหม่ (CNX)</h5>
+                            <span>15 นาที (มีรถรับส่งฟรี)</span>
+                        </div>
+                    </div>
+                    <div class="landmark-item">
+                        <div class="landmark-icon"><i class="fa-solid fa-mug-hot"></i></div>
+                        <div class="landmark-text">
+                            <h5>ถนนนิมมานเหมินทร์</h5>
+                            <span>8 นาที (คาเฟ่ & ไลฟ์สไตล์)</span>
+                        </div>
+                    </div>
+                    <div class="landmark-item">
+                        <div class="landmark-icon"><i class="fa-solid fa-mountain"></i></div>
+                        <div class="landmark-text">
+                            <h5>วัดพระธาตุดอยสุเทพ</h5>
+                            <span>20 นาที (ชมวิวเมืองเชียงใหม่)</span>
+                        </div>
+                    </div>
+                    <div class="landmark-item">
+                        <div class="landmark-icon"><i class="fa-solid fa-landmark"></i></div>
+                        <div class="landmark-text">
+                            <h5>ศูนย์ประชุมนานาชาติฯ</h5>
+                            <span>3 นาที (สะดวกสบาย)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Buttons: Google Maps & Hotel Agoda Link -->
+                <div class="location-action-btns">
+                    <a href="https://maps.google.com/?q=The+Clover+Hotel+Chiang+Mai" target="_blank" rel="noopener" class="btn-royal">
+                        <i class="fa-solid fa-diamond-turn-right"></i> เปิด Google Maps นำทาง
+                    </a>
+                    <a href="https://www.agoda.com/th-th/the-clover/hotel/chiang-mai-th.html" target="_blank" rel="noopener" class="btn-outline-gold">
+                        <i class="fa-solid fa-hotel"></i> หน้าโรงแรม The Clover (Agoda)
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right Interactive Map Embed -->
+            <div class="location-card-map">
+                <div class="map-wrapper">
+                    <iframe 
+                        title="The Clover Hotel Chiang Mai Location"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3776.8837130282573!2d98.9610543!3d18.8033621!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30da3a69315d0d69%3A0x29efec4f0c43093b!2sThe%20Clover%20Hotel!5e0!3m2!1sth!2sth!4v1710000000000!5m2!1sth!2sth" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                    <div class="map-overlay-info">
+                        <div>
+                            <div class="map-overlay-title">📍 The Clover Hotel & Bonnie Sanctuary</div>
+                            <div class="map-overlay-sub">2/12 ถนนเลียบคลองชลประทาน ช้างเผือก เชียงใหม่</div>
+                        </div>
+                        <a href="https://maps.google.com/?q=The+Clover+Hotel+Chiang+Mai" target="_blank" rel="noopener" style="color: var(--gold-light); font-size: 0.82rem; text-decoration: none; display: flex; align-items: center; gap: 4px; font-weight: 600;">
+                            ขยายแผนที่ <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1780,12 +2103,12 @@
         <div class="footer-logo">🪷</div>
         <h3 style="color: #fff; margin-bottom: 10px; font-size: 1.3rem; letter-spacing: 2px;">BONNIE RESORT & SANCTUARY</h3>
         <p class="footer-text">
-            Mae Rim Mountain Valley, Chiang Mai 50180, Thailand.<br>
+            2/12 ถนนเลียบคลองชลประทาน ต.ช้างเผือก อ.เมือง จ.เชียงใหม่ 50300<br>
             โทร: +66 (0) 53 888 999 · อีเมล: reservations@bonnie-chiangmai.com<br>
             สุนทรียภาพแห่งการพักผ่อนเหนือระดับท่ามกลางขุนเขา ผ่านมุมมองเสมือนจริง 360° และระบบการจองตรงการันตีห้องพัก 100%
         </p>
         <div style="color: #555; font-size: 0.8rem;">
-            &copy; 2026 Bonnie Resort Chiang Mai. All Rights Reserved.
+            &copy; 2026 Bonnie Resort Chiang Mai & The Clover. All Rights Reserved.
         </div>
     </footer>
 
@@ -1851,6 +2174,16 @@
         }
         animateGoldDust();
 
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('main-nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
         // ==========================================
         // 2. Synthesized Relaxing Lanna Ambience Audio (Web Audio API)
         // ==========================================
@@ -1870,7 +2203,6 @@
             const osc = audioCtx.createOscillator();
             const gain = audioCtx.createGain();
             
-            // Soothing sine / soft wave
             osc.type = 'sine';
             osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
             
@@ -1910,7 +2242,7 @@
             } else {
                 isAudioPlaying = false;
                 btn.classList.remove('audio-active');
-                btn.querySelector('span').innerText = 'ดนตรีผ่อนคลาย';
+                btn.querySelector('span').innerText = 'ดนตรีล้านนา';
                 clearInterval(audioInterval);
             }
         }
@@ -1921,7 +2253,7 @@
         // ==========================================
         const scenes360 = {
             king_suite: {
-                title: "Bonnie Grand Lanna Suite (เรือนไม้สักทองล้านนา)",
+                title: "Bonnie Grand Lanna Suite (เรือนไม้สักทอง)",
                 panorama: "https://images.unsplash.com/photo-1590381105924-c72589b9ef3f?q=80&w=2071",
                 hotSpots: [
                     {
@@ -2077,7 +2409,6 @@
             const tourBox = document.getElementById('panorama-view');
             if (!tourBox) return;
 
-            // ตรวจสอบว่าเป็นอุปกรณ์สัมผัสหน้าจอ (Touch Device/Mobile) หรือไม่
             const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
             if (isTouchDevice) {
                 isMouseFollowActive = false;
@@ -2172,7 +2503,6 @@
                 { id: 'Client E', name: 'คุณนลินี (Chiang Mai)' }
             ];
 
-            // Simulate server transaction lock
             setTimeout(() => {
                 logToConsole("🔒 [CONCURRENCY GUARD]: ล็อกคลังห้องพักแบบ Atomic Guard ป้องกันการแย่งจอง (asyncio.Lock)", 'lock');
                 
