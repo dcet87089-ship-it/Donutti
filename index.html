@@ -2,7 +2,7 @@
 <html lang="th">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
     <title>Bonnie Resort Chiang Mai | มนต์เสน่ห์ขุนเขาและพูลวิลล่าเชียงใหม่เสมือนจริง 360°</title>
     <meta name="description" content="สัมผัสประสบการณ์การพักผ่อนเหนือระดับที่ บอนนี่ รีสอร์ต แอนด์ แซงค์ทัวรี เชียงใหม่ พูลวิลล่าส่วนตัวท่ามกลางขุนเขาแม่ริม สำรวจห้องพักจริง 360 องศา พร้อมระบบจองตรงการันตีห้องพัก 100%">
     
@@ -34,7 +34,14 @@
             --text-muted: #C5BCB3;
         }
 
-        * {
+        html {
+            overflow-x: hidden;
+            max-width: 100%;
+            width: 100%;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        *, *::before, *::after {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
@@ -47,6 +54,14 @@
             overflow-x: hidden;
             scroll-behavior: smooth;
             line-height: 1.6;
+            max-width: 100%;
+            width: 100%;
+            position: relative;
+        }
+
+        img, video, iframe, embed, object {
+            max-width: 100%;
+            height: auto;
         }
 
         /* Ambient Canvas for Gold Dust Particles */
@@ -54,8 +69,8 @@
             position: fixed;
             top: 0;
             left: 0;
-            width: 100vw;
-            height: 100vh;
+            width: 100%;
+            height: 100%;
             pointer-events: none;
             z-index: 1;
             opacity: 0.65;
@@ -422,12 +437,21 @@
             grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)) auto;
             gap: 16px;
             align-items: end;
+            width: 100%;
+            max-width: 100%;
+        }
+
+        .booking-grid > * {
+            min-width: 0;
+            max-width: 100%;
         }
 
         .form-group {
             display: flex;
             flex-direction: column;
             gap: 8px;
+            width: 100%;
+            min-width: 0;
         }
 
         .form-group label {
@@ -438,6 +462,9 @@
             display: flex;
             align-items: center;
             gap: 6px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         .form-control {
@@ -450,6 +477,17 @@
             font-size: 0.95rem;
             outline: none;
             transition: border-color 0.3s;
+            width: 100%;
+            max-width: 100%;
+            min-width: 0;
+            box-sizing: border-box;
+        }
+
+        select.form-control {
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+            cursor: pointer;
         }
 
         .form-control:focus {
@@ -1099,230 +1137,16 @@
         }
 
         /* ==========================================
-           Mobile & Tablet Responsive Styling
+           4.2 Location & Map Section (Base Styles)
            ========================================== */
-        @media (max-width: 992px) {
-            .navbar { padding: 14px 4%; }
-            .nav-links { display: none; }
-            .hero { padding: 110px 5% 60px; min-height: auto; }
-            .hero-title { font-size: 3rem; }
-            .section-tour, .section-suites, .section-backend { padding: 70px 5% 50px; }
-            .tour-viewport-container { height: 480px; }
-        }
-
-        @media (max-width: 768px) {
-            .navbar {
-                padding: 10px 4%;
-            }
-            .brand-emblem { font-size: 1.6rem; }
-            .brand-text h2 { font-size: 1.05rem; }
-            .brand-text span { font-size: 0.58rem; letter-spacing: 1.5px; }
-
-            .audio-btn span { display: none; }
-            .audio-btn { padding: 8px 10px; }
-            .btn-royal { padding: 9px 16px; font-size: 0.85rem; }
-
-            .hero {
-                padding: 95px 4% 40px;
-            }
-            .royal-badge {
-                font-size: 0.75rem;
-                padding: 5px 12px;
-                margin-bottom: 16px;
-            }
-            .hero-title {
-                font-size: 2.1rem;
-                line-height: 1.25;
-            }
-            .hero-subtitle {
-                font-size: 0.95rem;
-                line-height: 1.6;
-                margin-bottom: 24px;
-            }
-            .hero-actions {
-                flex-direction: column;
-                width: 100%;
-                gap: 12px;
-            }
-            .hero-actions .btn-royal, .hero-actions .btn-outline-gold {
-                width: 100%;
-                justify-content: center;
-            }
-
-            .hero-pillars {
-                grid-template-columns: 1fr;
-                gap: 12px;
-                margin-top: 35px;
-            }
-
-            /* Booking Bar */
-            .booking-section-wrapper {
-                padding: 0 4%;
-                margin-top: 15px;
-            }
-            .booking-card {
-                padding: 20px 16px;
-                border-radius: 14px;
-            }
-            .booking-header-status {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 8px;
-                font-size: 0.82rem;
-            }
-            .booking-grid {
-                grid-template-columns: 1fr;
-                gap: 12px;
-            }
-
-            /* 360 Tour */
-            .section-tour {
-                padding: 60px 4% 40px;
-            }
-            .section-title {
-                font-size: 1.9rem;
-            }
-            .section-desc {
-                font-size: 0.92rem;
-            }
-            .tour-scene-selector {
-                flex-direction: column;
-                gap: 8px;
-            }
-            .scene-btn {
-                width: 100%;
-                justify-content: center;
-                padding: 8px 14px;
-                font-size: 0.85rem;
-            }
-            .tour-viewport-container {
-                height: 400px;
-                border-radius: 14px;
-            }
-            .tour-overlay-badge {
-                top: 10px;
-                left: 10px;
-                font-size: 0.72rem;
-                padding: 4px 10px;
-                max-width: 60%;
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
-            }
-            .tour-direction-nav {
-                top: auto;
-                bottom: 60px;
-                right: 8px;
-                left: 8px;
-                justify-content: center;
-                padding: 5px 6px;
-                gap: 4px;
-            }
-            .direction-label {
-                display: none;
-            }
-            .dir-btn {
-                padding: 4px 7px;
-                font-size: 0.72rem;
-                border-radius: 14px;
-            }
-            .tour-mouse-hint {
-                display: none !important;
-            }
-            .tour-controls-bar {
-                bottom: 12px;
-                right: 10px;
-                gap: 6px;
-            }
-            .tour-ctrl-btn {
-                width: 36px;
-                height: 36px;
-                font-size: 0.85rem;
-            }
-
-            /* Suites */
-            .section-suites {
-                padding: 60px 4% 40px;
-            }
-            .suites-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-            .suite-img-wrap {
-                height: 200px;
-            }
-            .suite-body {
-                padding: 18px;
-            }
-            .suite-name {
-                font-size: 1.2rem;
-            }
-            .suite-amenities {
-                flex-wrap: wrap;
-                gap: 10px;
-            }
-
-            /* Robust Backend Simulator */
-            .section-backend {
-                padding: 60px 4% 40px;
-            }
-            .backend-card {
-                padding: 20px 14px;
-                border-radius: 14px;
-            }
-            .backend-title {
-                font-size: 1.1rem;
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            .sim-console {
-                height: 180px;
-                font-size: 0.76rem;
-                padding: 12px;
-            }
-            .sim-actions {
-                flex-direction: column;
-                align-items: stretch;
-                gap: 10px;
-            }
-            .btn-backend-sim, .btn-reset-sim {
-                width: 100%;
-                justify-content: center;
-            }
-
-            /* Modal */
-            .modal-card {
-                padding: 24px 16px;
-                max-width: 95%;
-            }
-            .wax-seal {
-                width: 55px;
-                height: 55px;
-                font-size: 1.5rem;
-            }
-            .section-perks {
-                padding: 60px 5%;
-            }
-            .perks-grid {
-                grid-template-columns: 1fr;
-                gap: 16px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero-title { font-size: 1.75rem; }
-            .brand-text h2 { font-size: 0.92rem; }
-            .brand-text span { display: none; }
-            .tour-viewport-container { height: 340px; }
-            .price-val { font-size: 1.25rem; }
-        }
-
-        /* 4.2 Location & Map Section */
         .section-location {
             padding: 90px 6%;
             background: linear-gradient(180deg, rgba(12, 10, 9, 0.95) 0%, rgba(20, 16, 14, 0.98) 50%, rgba(12, 10, 9, 0.95) 100%);
             position: relative;
             z-index: 2;
+            width: 100%;
+            max-width: 100%;
+            overflow: hidden;
         }
 
         .location-grid {
@@ -1332,6 +1156,12 @@
             max-width: 1280px;
             margin: 40px auto 0;
             align-items: stretch;
+            width: 100%;
+        }
+
+        .location-grid > * {
+            min-width: 0;
+            max-width: 100%;
         }
 
         .location-card-info {
@@ -1344,10 +1174,13 @@
             justify-content: space-between;
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
             backdrop-filter: blur(12px);
+            width: 100%;
+            min-width: 0;
         }
 
         .location-address-box {
             margin-bottom: 24px;
+            width: 100%;
         }
 
         .location-tag-badge {
@@ -1363,6 +1196,7 @@
             margin-bottom: 16px;
             letter-spacing: 1px;
             text-transform: uppercase;
+            max-width: 100%;
         }
 
         .location-hotel-title {
@@ -1370,6 +1204,7 @@
             color: #fff;
             margin-bottom: 8px;
             font-family: 'Cinzel', 'Noto Serif Thai', serif;
+            word-break: break-word;
         }
 
         .location-hotel-subtitle {
@@ -1377,6 +1212,7 @@
             color: var(--gold-light);
             margin-bottom: 16px;
             letter-spacing: 1px;
+            word-break: break-word;
         }
 
         .location-address-text {
@@ -1384,6 +1220,7 @@
             font-size: 0.95rem;
             line-height: 1.8;
             margin-bottom: 20px;
+            word-break: break-word;
         }
 
         .location-landmarks {
@@ -1391,6 +1228,12 @@
             grid-template-columns: repeat(2, 1fr);
             gap: 14px;
             margin: 20px 0 28px;
+            width: 100%;
+        }
+
+        .location-landmarks > * {
+            min-width: 0;
+            max-width: 100%;
         }
 
         .landmark-item {
@@ -1402,6 +1245,8 @@
             align-items: center;
             gap: 12px;
             transition: all 0.3s ease;
+            width: 100%;
+            min-width: 0;
         }
 
         .landmark-item:hover {
@@ -1415,6 +1260,12 @@
             color: var(--gold-primary);
             width: 32px;
             text-align: center;
+            flex-shrink: 0;
+        }
+
+        .landmark-text {
+            min-width: 0;
+            flex: 1;
         }
 
         .landmark-text h5 {
@@ -1422,11 +1273,13 @@
             color: var(--text-light);
             font-weight: 600;
             margin: 0;
+            word-break: break-word;
         }
 
         .landmark-text span {
             font-size: 0.76rem;
             color: var(--gold-light);
+            word-break: break-word;
         }
 
         .location-action-btns {
@@ -1434,6 +1287,7 @@
             flex-wrap: wrap;
             gap: 14px;
             margin-top: 10px;
+            width: 100%;
         }
 
         .location-action-btns a {
@@ -1449,6 +1303,7 @@
             border-radius: 8px;
             font-size: 0.92rem;
             font-weight: 600;
+            box-sizing: border-box;
         }
 
         .location-card-map {
@@ -1461,6 +1316,8 @@
             flex-direction: column;
             min-height: 440px;
             position: relative;
+            width: 100%;
+            min-width: 0;
         }
 
         .map-wrapper {
@@ -1497,47 +1354,556 @@
             font-size: 0.88rem;
             color: #fff;
             font-weight: 600;
+            word-break: break-word;
         }
 
         .map-overlay-sub {
             font-size: 0.76rem;
             color: var(--gold-light);
+            word-break: break-word;
+        }
+
+        /* ==========================================
+           Mobile & Tablet Responsive Styling
+           ========================================== */
+        @media (max-width: 992px) {
+            .navbar { padding: 14px 4%; }
+            .nav-links { display: none; }
+            .hero { padding: 110px 5% 60px; min-height: auto; }
+            .hero-title { font-size: 3rem; }
+            .section-tour, .section-suites, .section-backend, .section-location, .section-perks { padding: 70px 5% 50px; }
+            .tour-viewport-container { height: 480px; }
+            .location-grid { grid-template-columns: 1fr; gap: 28px; }
         }
 
         @media (max-width: 768px) {
-            .section-location {
-                padding: 60px 4% 40px;
+            /* General Mobile Container Safety */
+            html, body {
+                overflow-x: hidden !important;
+                max-width: 100% !important;
+                width: 100% !important;
             }
-            .location-grid {
-                grid-template-columns: 1fr;
-                gap: 24px;
+
+            /* 1. Navbar Mobile */
+            .navbar {
+                padding: 10px 12px;
+                width: 100%;
+                max-width: 100%;
+                box-sizing: border-box;
             }
-            .location-card-info {
-                padding: 22px 18px;
+            .brand-logo {
+                gap: 8px;
+                min-width: 0;
             }
-            .location-landmarks {
-                grid-template-columns: 1fr;
+            .brand-emblem {
+                font-size: 1.4rem;
+            }
+            .brand-text h2 {
+                font-size: 1.02rem;
+                letter-spacing: 1px;
+            }
+            .brand-text span {
+                display: none;
+            }
+            .nav-actions {
+                gap: 6px;
+                margin-left: auto;
+            }
+            .audio-btn {
+                padding: 6px 9px;
+                font-size: 0.78rem;
+            }
+            .audio-btn span, .audio-btn .sound-wave {
+                display: none !important;
+            }
+            .navbar .btn-royal {
+                padding: 7px 11px;
+                font-size: 0.78rem;
+                gap: 5px;
+                letter-spacing: 0.5px;
+                white-space: nowrap;
+            }
+
+            /* 2. Hero Section */
+            .hero {
+                padding: 85px 12px 35px;
+                min-height: auto;
+                width: 100%;
+                box-sizing: border-box;
+                overflow: hidden;
+            }
+            .royal-badge {
+                font-size: 0.68rem;
+                padding: 5px 10px;
+                margin-bottom: 14px;
+                white-space: normal;
+                text-align: center;
+                line-height: 1.35;
+                max-width: 100%;
+            }
+            .hero-title {
+                font-size: 1.75rem;
+                line-height: 1.25;
+                margin-bottom: 14px;
+                word-break: break-word;
+            }
+            .hero-subtitle {
+                font-size: 0.88rem;
+                line-height: 1.6;
+                margin-bottom: 20px;
+                padding: 0 4px;
+                word-break: break-word;
+            }
+            .hero-actions {
+                flex-direction: column;
+                width: 100%;
                 gap: 10px;
             }
-            .location-card-map {
-                min-height: 320px;
+            .hero-actions a {
+                width: 100%;
+                justify-content: center;
+                padding: 11px 16px;
+                font-size: 0.88rem;
+                box-sizing: border-box;
+                text-align: center;
             }
-            .map-wrapper {
-                min-height: 320px;
+            .hero-pillars {
+                grid-template-columns: minmax(0, 1fr);
+                gap: 10px;
+                margin-top: 25px;
+                width: 100%;
+            }
+            .pillar-card {
+                padding: 14px 14px;
+                width: 100%;
+                min-width: 0;
+                box-sizing: border-box;
+            }
+            .pillar-title {
+                font-size: 0.98rem;
+            }
+            .pillar-desc {
+                font-size: 0.82rem;
+                line-height: 1.45;
+            }
+
+            /* 3. Floating Luxury Booking Bar (No Right Overflow) */
+            .booking-section-wrapper {
+                padding: 0 10px;
+                margin-top: 15px;
+                width: 100%;
+                box-sizing: border-box;
+            }
+            .booking-card {
+                padding: 16px 12px;
+                border-radius: 14px;
+                width: 100%;
+                box-sizing: border-box;
+                overflow: hidden;
+            }
+            .booking-header-status {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+                font-size: 0.78rem;
+                word-break: break-word;
+                width: 100%;
+            }
+            .concurrency-badge {
+                font-size: 0.76rem;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 6px;
+            }
+            .booking-grid {
+                grid-template-columns: minmax(0, 1fr) !important;
+                gap: 12px;
+                width: 100%;
+                box-sizing: border-box;
+            }
+            .booking-grid > * {
+                min-width: 0 !important;
+                max-width: 100% !important;
+                width: 100% !important;
+                box-sizing: border-box;
+            }
+            .form-group {
+                width: 100%;
+                min-width: 0;
+                box-sizing: border-box;
+            }
+            .form-control {
+                width: 100%;
+                max-width: 100%;
+                min-width: 0;
+                box-sizing: border-box;
+                font-size: 0.88rem;
+                padding: 10px 12px;
+            }
+            select.form-control {
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+                width: 100%;
+                max-width: 100%;
+                min-width: 0;
+            }
+            .booking-grid button[type="submit"] {
+                width: 100%;
+                height: auto !important;
+                min-height: 46px;
+                padding: 10px 8px;
+                font-size: 0.85rem;
+                justify-content: center;
+                white-space: normal;
+                text-align: center;
+                line-height: 1.3;
+                box-sizing: border-box;
+            }
+
+            /* 4. 360 Virtual Tour Section */
+            .section-tour {
+                padding: 50px 12px 30px;
+                width: 100%;
+                box-sizing: border-box;
+                overflow: hidden;
+            }
+            .section-header {
+                margin-bottom: 28px;
+            }
+            .section-tag {
+                font-size: 0.76rem;
+                letter-spacing: 2px;
+            }
+            .section-title {
+                font-size: 1.55rem;
+                word-break: break-word;
+            }
+            .section-desc {
+                font-size: 0.86rem;
+                line-height: 1.55;
+                word-break: break-word;
+            }
+            .tour-scene-selector {
+                flex-direction: column;
+                gap: 8px;
+                width: 100%;
+            }
+            .scene-btn {
+                width: 100%;
+                justify-content: center;
+                padding: 8px 12px;
+                font-size: 0.82rem;
+                box-sizing: border-box;
+            }
+            .tour-viewport-container {
+                height: 360px;
+                border-radius: 14px;
+                width: 100%;
+                box-sizing: border-box;
+            }
+            .tour-overlay-badge {
+                top: 8px;
+                left: 8px;
+                font-size: 0.68rem;
+                padding: 4px 8px;
+                max-width: 75%;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+            .tour-direction-nav {
+                top: auto;
+                bottom: 54px;
+                right: 6px;
+                left: 6px;
+                width: calc(100% - 12px);
+                max-width: 100%;
+                box-sizing: border-box;
+                justify-content: center;
+                padding: 4px 5px;
+                gap: 3px;
+                border-radius: 16px;
+            }
+            .direction-label {
+                display: none;
+            }
+            .dir-btn {
+                padding: 3px 6px;
+                font-size: 0.68rem;
+                border-radius: 12px;
+            }
+            .tour-mouse-hint {
+                display: none !important;
+            }
+            .tour-controls-bar {
+                bottom: 8px;
+                right: 8px;
+                gap: 5px;
+            }
+            .tour-ctrl-btn {
+                width: 34px;
+                height: 34px;
+                font-size: 0.8rem;
+            }
+
+            /* 5. Suites & Villas */
+            .section-suites {
+                padding: 50px 12px 30px;
+                width: 100%;
+                box-sizing: border-box;
+                overflow: hidden;
+            }
+            .suites-grid {
+                grid-template-columns: minmax(0, 1fr);
+                gap: 20px;
+                width: 100%;
+            }
+            .suite-card {
+                width: 100%;
+                min-width: 0;
+                box-sizing: border-box;
+            }
+            .suite-img-wrap {
+                height: 190px;
+                width: 100%;
+            }
+            .suite-body {
+                padding: 16px 14px;
+                width: 100%;
+                box-sizing: border-box;
+            }
+            .suite-name {
+                font-size: 1.2rem;
+                word-break: break-word;
+            }
+            .suite-desc {
+                font-size: 0.85rem;
+                line-height: 1.6;
+                word-break: break-word;
+            }
+            .suite-amenities {
+                flex-wrap: wrap;
+                gap: 8px;
+                font-size: 0.76rem;
+                padding: 10px 0;
+            }
+            .suite-footer {
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+                gap: 8px;
+            }
+            .price-val {
+                font-size: 1.22rem;
+            }
+            .suite-footer .btn-royal {
+                padding: 8px 14px;
+                font-size: 0.82rem;
+                white-space: nowrap;
+            }
+
+            /* 6. Direct Booking Perks */
+            .section-perks {
+                padding: 50px 12px 30px;
+                width: 100%;
+                box-sizing: border-box;
+                overflow: hidden;
+            }
+            .perks-grid {
+                grid-template-columns: minmax(0, 1fr);
+                gap: 12px;
+                width: 100%;
+            }
+            .perk-card {
+                padding: 16px 14px;
+                gap: 12px;
+                width: 100%;
+                min-width: 0;
+                box-sizing: border-box;
+            }
+            .perk-icon {
+                font-size: 1.35rem;
+                width: 36px;
+                height: 36px;
+                flex-shrink: 0;
+            }
+            .perk-info h4 {
+                font-size: 0.94rem;
+                word-break: break-word;
+            }
+            .perk-info p {
+                font-size: 0.82rem;
+                line-height: 1.5;
+                word-break: break-word;
+            }
+
+            /* 7. Location & Map Section */
+            .section-location {
+                padding: 50px 12px 30px;
+                width: 100%;
+                box-sizing: border-box;
+                overflow: hidden;
+            }
+            .location-grid {
+                grid-template-columns: minmax(0, 1fr);
+                gap: 18px;
+                width: 100%;
+                margin-top: 24px;
+            }
+            .location-card-info {
+                padding: 18px 14px;
+                width: 100%;
+                min-width: 0;
+                box-sizing: border-box;
+            }
+            .location-hotel-title {
+                font-size: 1.3rem;
+                word-break: break-word;
+            }
+            .location-hotel-subtitle {
+                font-size: 0.85rem;
+            }
+            .location-address-text {
+                font-size: 0.85rem;
+                line-height: 1.7;
+                word-break: break-word;
+            }
+            .location-landmarks {
+                grid-template-columns: minmax(0, 1fr);
+                gap: 8px;
+                width: 100%;
+                margin: 14px 0 20px;
+            }
+            .landmark-item {
+                padding: 10px 12px;
+                width: 100%;
+                min-width: 0;
+                box-sizing: border-box;
             }
             .location-action-btns {
                 flex-direction: column;
+                width: 100%;
+                gap: 10px;
             }
             .location-action-btns a {
+                width: 100%;
+                min-width: 0;
+                justify-content: center;
+                padding: 11px 14px;
+                font-size: 0.86rem;
+                box-sizing: border-box;
+                text-align: center;
+            }
+            .location-card-map {
+                min-height: 280px;
+                width: 100%;
+                box-sizing: border-box;
+                border-radius: 14px;
+            }
+            .map-wrapper {
+                min-height: 280px;
                 width: 100%;
             }
             .map-overlay-info {
                 flex-direction: column;
                 align-items: flex-start;
+                gap: 4px;
+                bottom: 8px;
+                left: 8px;
+                right: 8px;
+                padding: 8px 12px;
+            }
+
+            /* 8. Robust Backend Section */
+            .section-backend {
+                padding: 50px 12px 30px;
+                width: 100%;
+                box-sizing: border-box;
+                overflow: hidden;
+            }
+            .backend-card {
+                padding: 16px 12px;
+                border-radius: 14px;
+                width: 100%;
+                box-sizing: border-box;
+                margin-top: 24px;
+            }
+            .backend-title {
+                font-size: 1.05rem;
+                flex-direction: column;
+                align-items: flex-start;
                 gap: 6px;
             }
+            .sim-console {
+                height: 180px;
+                font-size: 0.72rem;
+                padding: 10px;
+                word-break: break-word;
+                width: 100%;
+                box-sizing: border-box;
+            }
+            .sim-actions {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 8px;
+                width: 100%;
+            }
+            .btn-backend-sim, .btn-reset-sim {
+                width: 100%;
+                min-width: 0;
+                justify-content: center;
+                padding: 10px 12px;
+                font-size: 0.84rem;
+                white-space: normal;
+                text-align: center;
+                box-sizing: border-box;
+            }
+
+            /* 9. Modal & Footer */
+            .modal-card {
+                padding: 20px 14px;
+                width: 95%;
+                max-width: 420px;
+                box-sizing: border-box;
+            }
+            .wax-seal {
+                width: 50px;
+                height: 50px;
+                font-size: 1.35rem;
+            }
+            footer {
+                padding: 40px 14px;
+                width: 100%;
+                box-sizing: border-box;
+                text-align: center;
+                overflow: hidden;
+            }
+            .footer-text {
+                font-size: 0.82rem;
+                line-height: 1.6;
+                word-break: break-word;
+            }
         }
-    </style>
+
+        @media (max-width: 480px) {
+            .navbar { padding: 8px 10px; }
+            .brand-emblem { font-size: 1.3rem; }
+            .brand-text h2 { font-size: 0.95rem; }
+            .navbar .btn-royal { padding: 6px 10px; font-size: 0.75rem; }
+            .hero-title { font-size: 1.6rem; }
+            .section-title { font-size: 1.4rem; }
+            .booking-card { padding: 14px 10px; }
+            .tour-viewport-container { height: 320px; }
+            .price-val { font-size: 1.15rem; }
+        }
+
+        @media (max-width: 360px) {
+            .navbar .btn-royal { padding: 5px 8px; font-size: 0.72rem; }
+            .brand-text h2 { font-size: 0.88rem; }
+            .hero-title { font-size: 1.45rem; }
+        }
+</style>
 </head>
 <body>
 
@@ -1574,7 +1940,7 @@
                     <span class="sound-bar"></span>
                 </div>
             </button>
-            <a href="#suites-section" class="btn-royal"><i class="fa-solid fa-calendar-check"></i> เช็คห้องว่าง & จอง</a>
+            <a href="#suites-section" class="btn-royal"><i class="fa-solid fa-calendar-check"></i> <span>จองห้องพัก</span></a>
         </div>
     </nav>
 
@@ -1645,9 +2011,9 @@
                     <div class="form-group">
                         <label><i class="fa-solid fa-bed"></i> เลือกห้องพัก & พูลวิลล่า</label>
                         <select class="form-control" id="form-suite-select">
-                            <option value="room_king_suite">🪷 บอนนี่ แกรนด์ ล้านนา สวีท (เหลือ 1 ห้องสุดท้าย - ยอดนิยมสูงสุด!)</option>
-                            <option value="room_hall_mirrors">⛰️ ดอยสุเทพ ซันเซ็ต พูลวิลล่า (เหลือ 2 หลัง - สระส่วนตัว)</option>
-                            <option value="room_orangerie">🌿 แม่ริม ฟอเรสต์ แซงค์ทัวรี (เหลือ 3 หลัง - กลาสเฮ้าส์ธรรมชาติ)</option>
+                            <option value="room_king_suite">🪷 บอนนี่ แกรนด์ ล้านนา สวีท (เหลือ 1 ห้องสุดท้าย)</option>
+                            <option value="room_hall_mirrors">⛰️ ดอยสุเทพ ซันเซ็ต พูลวิลล่า (เหลือ 2 หลัง)</option>
+                            <option value="room_orangerie">🌿 แม่ริม ฟอเรสต์ แซงค์ทัวรี (เหลือ 3 หลัง)</option>
                         </select>
                     </div>
 
