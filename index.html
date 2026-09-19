@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
-    <title>Bonnie Resort Chiang Mai | มนต์เสน่ห์ขุนเขาและพูลวิลล่าเชียงใหม่เสมือนจริง 360°</title>
-    <meta name="description" content="สัมผัสประสบการณ์การพักผ่อนเหนือระดับที่ บอนนี่ รีสอร์ต แอนด์ แซงค์ทัวรี เชียงใหม่ พูลวิลล่าส่วนตัวท่ามกลางขุนเขาแม่ริม สำรวจห้องพักจริง 360 องศา พร้อมระบบจองตรงการันตีห้องพัก 100%">
+    <title>SABAI Resort Chiang Mai | มนต์เสน่ห์ขุนเขาและพูลวิลล่าเชียงใหม่เสมือนจริง 360°</title>
+    <meta name="description" content="สัมผัสประสบการณ์การพักผ่อนเหนือระดับที่ สบาย รีสอร์ต แอนด์ แซงค์ทัวรี เชียงใหม่ (SABAI Resort & Sanctuary) พูลวิลล่าส่วนตัวท่ามกลางขุนเขาแม่ริม สำรวจห้องพักจริง 360 องศา พร้อมระบบจองตรงการันตีห้องพัก 100%">
+    <link rel="icon" type="image/png" href="images/favicon.png">
     
     <!-- Fonts: Cinzel for Royal French Luxury, Playfair Display, and Prompt/Noto Serif for Thai -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -117,6 +118,26 @@
             align-items: center;
             gap: 12px;
             text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .brand-logo:hover {
+            transform: translateY(-1px);
+        }
+
+        .brand-logo-img {
+            height: 50px;
+            width: auto;
+            max-height: 54px;
+            object-fit: contain;
+            filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.45));
+            transition: all 0.3s ease;
+            display: block;
+        }
+
+        .brand-logo:hover .brand-logo-img {
+            transform: scale(1.05);
+            filter: drop-shadow(0 0 18px rgba(212, 175, 55, 0.75));
         }
 
         .brand-emblem {
@@ -1108,9 +1129,24 @@
         }
 
         .footer-logo {
-            font-size: 2rem;
-            color: var(--gold-primary);
-            margin-bottom: 15px;
+            margin-bottom: 16px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .footer-logo-img {
+            height: 75px;
+            width: auto;
+            max-width: 240px;
+            object-fit: contain;
+            filter: drop-shadow(0 0 16px rgba(212, 175, 55, 0.55));
+            transition: all 0.3s ease;
+        }
+
+        .footer-logo-img:hover {
+            transform: scale(1.06);
+            filter: drop-shadow(0 0 25px rgba(212, 175, 55, 0.85));
         }
 
         .footer-text {
@@ -1512,6 +1548,10 @@
             .brand-logo {
                 gap: 8px;
                 min-width: 0;
+            }
+            .brand-logo-img {
+                height: 38px;
+                max-height: 40px;
             }
             .brand-emblem {
                 font-size: 1.4rem;
@@ -2052,12 +2092,8 @@
 
     <!-- Navigation Bar -->
     <nav class="navbar" id="main-nav">
-        <a href="#" class="brand-logo">
-            <div class="brand-emblem">🪷</div>
-            <div class="brand-text">
-                <h2>BONNIE</h2>
-                <span>CHIANG MAI RESORT & SANCTUARY</span>
-            </div>
+        <a href="#" class="brand-logo" title="SABAI Resort & Sanctuary Chiang Mai">
+            <img src="images/logo_sabai.png" alt="SABAI Logo" class="brand-logo-img">
         </a>
 
         <ul class="nav-links">
@@ -2679,15 +2715,17 @@
 
     <!-- Footer -->
     <footer>
-        <div class="footer-logo">🪷</div>
-        <h3 style="color: #fff; margin-bottom: 10px; font-size: 1.3rem; letter-spacing: 2px;">BONNIE RESORT & SANCTUARY</h3>
+        <div class="footer-logo">
+            <img src="images/logo_sabai.png" alt="SABAI Resort & Sanctuary" class="footer-logo-img">
+        </div>
+        <h3 style="color: #fff; margin-bottom: 10px; font-size: 1.3rem; letter-spacing: 2px;">SABAI RESORT & SANCTUARY</h3>
         <p class="footer-text">
             2/12 ถนนเลียบคลองชลประทาน ต.ช้างเผือก อ.เมือง จ.เชียงใหม่ 50300<br>
-            โทร: +66 (0) 53 888 999 · อีเมล: reservations@bonnie-chiangmai.com<br>
+            โทร: +66 (0) 53 888 999 · อีเมล: reservations@sabai-chiangmai.com<br>
             สุนทรียภาพแห่งการพักผ่อนเหนือระดับท่ามกลางขุนเขา ผ่านมุมมองเสมือนจริง 360° และระบบการจองตรงการันตีห้องพัก 100%
         </p>
         <div style="color: #555; font-size: 0.8rem;">
-            &copy; 2026 Bonnie Resort Chiang Mai & The Clover. All Rights Reserved.
+            &copy; 2026 SABAI Resort Chiang Mai & The Clover. All Rights Reserved.
         </div>
     </footer>
 
