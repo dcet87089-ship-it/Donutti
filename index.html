@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>ชอบนะครับขอจีบนะครับ</title>
+    <!-- นำเข้าฟอนต์น่ารักๆ จาก Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #ffdde1; /* สีพื้นหลังชมพูพาสเทล */
+            font-family: 'Prompt', sans-serif;
+            overflow: hidden; /* ป้องกันหน้าจอเลื่อนเวลาปุ่มกระโดดไปขอบจอ */
+            touch-action: none; /* ป้องกันการเลื่อนจอหรือซูมบนมือถือ */
+        }
+
+        .card {
+            background: white;
+            padding: 40px 20px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(255, 100, 150, 0.2);
+            text-align: center;
+            width: 90%;
+            max-width: 350px;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* ส่วนของสติกเกอร์ */
+        .gif-container {
+            width: 150px;
+            margin-bottom: 20px;
+        }
+        .gif-container img, .tenor-gif-embed {
+            width: 100%;
+            border-radius: 10px;
+            pointer-events: none; /* ป้องกันการกดติด popup หรือเมนู */
+        }
+
+        h1 {
+            color: #ff4d6d;
+            font-size: 24px;
+            margin-bottom: 30px;
+            line-height: 1.4;
+        }
+
+        /* จัดตำแหน่งปุ่ม */
+        .buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            width: 100%;
+            position: relative;
+            min-height: 50px;
+        }
+
+        button {
+            font-family: 'Prompt', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: transform 0.2s ease, background-color 0.2s ease;
+            white-space: nowrap; /* ไม่ให้ข้อความในปุ่มขึ้นบรรทัดใหม่ */
+        }
+
+        #btn-yes {
+            background-color: #ff4d6d;
+            color: white;
+            box-shadow: 0 4px 15px rgba(255, 77, 109, 0.4);
+            z-index: 2;
+        }
+
+        #btn-no {
+            background-color: #f8f9fa;
+            color: #6c757d;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            position: relative; 
+            z-index: 100;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <div class="gif-container" id="gif-container">
+            <img id="sticker" src="https://media1.tenor.com/m/jcAP_LEeUOUAAAAd/love.gif" alt="Love Sticker" style="width: 100%; border-radius: 10px;">
+        </div>
+        <h1 id="question">ชอบนะครับขอจีบนะครับ 🥺</h1>
+        
+        <div class="buttons">
+            <button id="btn-yes">ด้ายย ❤️</button>
+            <button id="btn-no">ยังก่อน</button>
+        </div>
+    </div>
+
+    <script>
+        const btnNo = document.getElementById('btn-no');
+        const btnYes = document.getElementById('btn-yes');
+        const gifContainer = document.getElementById('gif-container');
+        const sticker = document.getElementById('sticker');
+        const question = document.getElementById('question');
+
+        let yesScale = 1; // ขนาดเริ่มต้นของปุ่ม "ได้"
+        
+        // รายการข้อความที่จะสุ่มเปลี่ยนเมื่อกดปุ่ม "ยังก่อน"
+        const noTexts = [
+            "ยังไม่ได้หรอ 🥺", 
+            "เปลี่ยนใจได้ไหม", 
+            "เปลี่ยนใจเถอะ", 
+            "ขอร้องงง", 
+            "เราจะร้องแล้วนะ 😭", 
+            "ใจอ่อนได้แล้ว", 
+            "ใจอ่อนเถอะน้าา", 
+            "ได้มั้ยครับบบ", 
+            "ยอมแล้ววว", 
+            "น้าาาาา", 
+            "น้าๆๆๆๆๆ", 
+            "ขอร้องน้าา 🙏"
+        ];
+        let textIndex = 0;
+
+        // รายการรูปภาพเศร้าๆ ที่จะสุ่มเปลี่ยน
+        const sadGifs = [
+            "https://media1.tenor.com/m/QjqrLB0Sw30AAAAC/sad-cat.gif",
+            "https://media1.tenor.com/m/1W0yh-tTjNIAAAAC/do-bronx.gif",
+            "https://media1.tenor.com/m/hqsF4Xxs7nUAAAAC/bubu-sad.gif",
+            "https://media1.tenor.com/m/_CGSmj6qenYAAAAC/peach-and.gif",
+            "https://media1.tenor.com/m/A-CWA3DodfEAAAAC/bubu-bubu-sad.gif",
+            "https://media1.tenor.com/m/z0BGYS7UF0QAAAAC/tkthao219-bubududu.gif",
+            "https://media1.tenor.com/m/eHHT6gj6v60AAAAC/bubu-dudu.gif",
+            "https://media1.tenor.com/m/NbfYAAyKtmkAAAAC/bubu-dudu-sad.gif",
+            "https://media1.tenor.com/m/925LDfyVUGEAAAAC/cute-sad.gif",
+            "https://media1.tenor.com/m/iEXbs40PJrYAAAAC/heart-broken-broken-heart.gif"
+        ];
+
+        // ฟังก์ชันเมื่อกดปุ่ม "ยังก่อน"
+        function moveButton() {
+            // 1. ทำให้ปุ่ม "ด้ายย" ขยายใหญ่ขึ้นทีละนิด
+            yesScale += 0.15;
+            btnYes.style.transform = `scale(${yesScale})`;
+
+            // 2. เปลี่ยนข้อความปุ่ม "ยังก่อน" ตามลำดับเรื่อยๆ
+            btnNo.innerText = noTexts[textIndex];
+            textIndex = (textIndex + 1) % noTexts.length;
+
+            // 3. สุ่มเปลี่ยนรูปสติกเกอร์เป็นอันที่เศร้าๆ
+            const randomGif = sadGifs[Math.floor(Math.random() * sadGifs.length)];
+            sticker.src = randomGif;
+
+            // 4. สุ่มตำแหน่งใหม่ให้ปุ่มหนีไปรอบๆ หน้าจอ
+            const btnWidth = btnNo.offsetWidth;
+            const btnHeight = btnNo.offsetHeight;
+            
+            // หาขนาดความกว้าง/สูงของหน้าต่าง ลบด้วยขนาดปุ่มเพื่อไม่ให้ทะลุขอบจอ (เพิ่มระยะขอบปลอดภัยสำหรับมือถือ)
+            const safeMargin = 30;
+            const maxX = Math.max(0, document.documentElement.clientWidth - btnWidth - safeMargin);
+            const maxY = Math.max(0, document.documentElement.clientHeight - btnHeight - safeMargin);
+
+            const randomX = Math.max(safeMargin, Math.floor(Math.random() * maxX));
+            const randomY = Math.max(safeMargin, Math.floor(Math.random() * maxY));
+
+            // เปลี่ยน position เป็น fixed เพื่อให้ปุ่มหลุดออกจากกรอบและวิ่งทั่วจอ
+            btnNo.style.position = 'fixed';
+            btnNo.style.left = `${randomX}px`;
+            btnNo.style.top = `${randomY}px`;
+        }
+
+        // เมื่อกดปุ่ม (ใช้ click ทำงานได้ดีที่สุดบนมือถือเวลาผู้ใช้แตะ)
+        btnNo.addEventListener('click', (e) => {
+            e.preventDefault();
+            moveButton();
+        });
+
+        // ฟังก์ชันเมื่อเขากดปุ่ม "ด้ายย" สำเร็จ
+        btnYes.addEventListener('click', () => {
+            question.innerHTML = "เย้! น่ารักที่สุดเลย 🥰";
+            // ตรงนี้สำหรับเปลี่ยนรูปสติกเกอร์ตอนตอบตกลง
+            gifContainer.innerHTML = '<img src="https://media.tenor.com/rKUSiVu2bB0AAAAM/kiss-blow-kiss.gif" alt="Happy Sticker" style="width: 100%; border-radius: 10px;">';
+            
+            // ซ่อนปุ่มทั้งสองอันทิ้งไป
+            btnNo.style.display = 'none';
+            btnYes.style.display = 'none';
+        });
+    </script>
+
+</body>
+</html>
+</html>
